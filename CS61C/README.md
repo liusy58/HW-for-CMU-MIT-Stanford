@@ -60,7 +60,19 @@ https://learngitbranching.js.org/?locale=zh_CN
 `Rebase` 的优势就是可以创造更线性的提交历史，这听上去有些难以理解。如果只允许使用 `Rebase` 的话，代码库的提交历史将会变得异常清晰。
 
 
+### Lec5 Intro to Assembly Language, MIPS Intro
+
+###### Levels of Representation/ Interpretation
+![Levels of RepresentaHon/ InterpretaHon](./Images/5.png)
 
 
+The set of instrucHons a parHcular CPU implements is an **Instruction Set Architecture (ISA)**.
 
+###### MIPS VS. Intel x86
+* MIPS is simple, elegant.
+* MIPS widely used in embedded apps, x86 liBle used in embedded, and more embedded computers than PCs
 
+###### registers
+Assembly Operands are registers
+
+In Assembly Language, registers have no type; operation determines how register contents are treated
