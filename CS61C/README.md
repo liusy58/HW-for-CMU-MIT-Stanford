@@ -39,4 +39,28 @@ of this course.
 * In general, pointers allow cleaner, more compact code
 
 
+**I hand you a thousand \$1 bills and ten envelopes. Your job is to find a way to put various numbers of dollar bills in those ten envelopes so that no matter what amount of money I ask you for (between $1-1000), you can simply hand me some combination of envelopes and always be assured of giving me the correct amount of cash.**
+
+Consider the binary notation～
+
+
+###### Some basic git
+
+https://learngitbranching.js.org/?locale=zh_CN
+
+`Git` 的分支也非常轻量。它们只是简单地指向某个提交纪录,仅此而已。
+创建分支：
+`git branch newImage`
+
+`git checkout <name>`切换分支
+
+对了，有个更简洁的方式：如果你想创建一个新的分支同时切换到新创建的分支的话，可以通过 `git checkout -b <your-branch-name>` 来实现
+
+第二种合并分支的方法是 `git rebase`。Rebase 实际上就是取出一系列的提交记录，“复制”它们，然后在另外一个地方逐个的放下去。
+`Rebase` 的优势就是可以创造更线性的提交历史，这听上去有些难以理解。如果只允许使用 `Rebase` 的话，代码库的提交历史将会变得异常清晰。
+
+
+
+
+
 
