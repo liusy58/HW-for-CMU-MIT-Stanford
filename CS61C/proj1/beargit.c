@@ -101,7 +101,18 @@ int beargit_add(const char* filename) {
 
 int beargit_status() {
   /* COMPLETE THE REST */
+  fprintf(stdout,"Tracked files:\n\n");
+  char line[FILENAME_SIZE];
+  FILE*file=fopen(".beargit/.index","r");
+  int cnt=0;
+  while(fscanf(file,"%s",line)!=EOF)
+  {
 
+    fprintf(stdout,"  %s\n",line);
+    cnt++;
+  }
+  fclose(file);
+  fprintf(stdout,"\n%d files total\n",cnt);
   return 0;
 }
 
@@ -113,7 +124,28 @@ int beargit_status() {
 
 int beargit_rm(const char* filename) {
   /* COMPLETE THE REST */
+  FILE* findex = fopen(".beargit/.index", "r");
+  FILE *fnewindex = fopen(".beargit/.newindex", "w");
 
+  char line[FILENAME_SIZE];
+  int flag=0;
+  while(fgets(line, sizeof(line), findex)) {
+    strtok(line, "\n");
+    if (strcmp(line, filename) == 0) {
+      flag=1;
+      continue;
+    }
+    fprintf(fnewindex, "%s\n", line);
+  }
+  fclose(findex);
+  fclose(fnewindex);
+  fs_mv(".beargit/.newindex", ".beargit/.index");
+  if(!flag)
+  {
+    fprintf(stderr,"ERROR: File %s not tracked\n",filename);
+    return 1;
+  }
+  fs_rm(filename);
   return 0;
 }
 
@@ -125,9 +157,13 @@ int beargit_rm(const char* filename) {
 
 const char* go_bears = "GO BEARS!";
 
+
+
 int is_commit_msg_ok(const char* msg) {
   /* COMPLETE THE REST */
-  return 0;
+  if(strstr(msg,go_bears)==NULL)
+    return 0;
+  return 1;
 }
 
 void next_commit_id_part1(char* commit_id) {
