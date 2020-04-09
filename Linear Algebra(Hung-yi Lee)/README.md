@@ -50,3 +50,9 @@ one-to-one(一对一)的意思是也就是说没有两个input有一样的output
 Onto(映成):range等于Co-domain
 
 ---
+
+
+###### linear system VS. System of linear equations
+
+linear System一定可以写成System of linear equations
+![linear system VS. System of linear equations](./Images/5.png)
