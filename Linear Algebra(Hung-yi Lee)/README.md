@@ -56,3 +56,5 @@ Onto(映成):range等于Co-domain
 
 linear System一定可以写成System of linear equations
 ![linear system VS. System of linear equations](./Images/5.png)
+
+![Explanation](./Images/6.png)
