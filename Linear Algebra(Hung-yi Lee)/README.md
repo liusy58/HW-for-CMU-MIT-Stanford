@@ -58,3 +58,31 @@ linear System一定可以写成System of linear equations
 ![linear system VS. System of linear equations](./Images/5.png)
 
 ![Explanation](./Images/6.png)
+
+
+### Lec3
+
+###### Vector
+A vector v is a set of numbers.
+我们一般说的向量都是列向量
+
+###### Vector Set
+
+![Vector Set](./Images/7.png)
+
+###### Properties of Vector
+![Properties of Vector](./Images/8.png)
+
+
+### Lec4
+
+###### Matrix
+A matrix is a set of vectors.
+
+###### 特殊矩阵
+* Identity matrix必须是正方形的，Identity matrix的特性是：左上到右下的对角线是1，其它部分都是0。
+* Zero matrix就是每一个element都是O的matrix
+
+
+
+
