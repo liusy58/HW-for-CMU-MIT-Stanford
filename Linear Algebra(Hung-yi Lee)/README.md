@@ -84,3 +84,9 @@ A matrix is a set of vectors.
 * Zero matrix就是每一个element都是O的matrix
 
 
+### Lec5
+
+###### Span
+![](./Images/9.png)
+
+检验一个linear equations有没有解等同于b是不是A的column的linear combination；
