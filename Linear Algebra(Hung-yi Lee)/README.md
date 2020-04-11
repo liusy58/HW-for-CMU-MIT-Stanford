@@ -84,5 +84,3 @@ A matrix is a set of vectors.
 * Zero matrix就是每一个element都是O的matrix
 
 
-
-
