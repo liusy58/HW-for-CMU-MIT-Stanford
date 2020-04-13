@@ -168,6 +168,27 @@ int is_commit_msg_ok(const char* msg) {
 
 void next_commit_id_part1(char* commit_id) {
   /* COMPLETE THE REST */
+  char* new_id = commit_id;
+  while (*new_id != '\0') {
+    if (*new_id == '0') {
+      *new_id = '6';
+      new_id++;
+      continue;
+    } else if (*new_id == '6') {
+      *new_id = '1';
+      break;
+    } else if (*new_id == '1') {
+      *new_id = 'c';
+      break;
+    } else if (*new_id == 'c') {
+      *new_id = '6';
+      new_id++;
+    } else {
+      *new_id = '6';
+      new_id++;
+    }
+  }
+
 }
 
 int beargit_commit(const char* msg) {
@@ -181,7 +202,32 @@ int beargit_commit(const char* msg) {
   next_commit_id(commit_id); 
 
   /* COMPLETE THE REST */
+  char *filename = malloc(strlen(".beargit/") + strlen(commit_id) + 1);
+  sprintf(filename, "%s/%s", ".beargit", commit_id);
+  fs_mkdir(filename);
 
+  char *index = malloc(strlen(filename) + strlen("/.index") + 1);
+  sprintf(index, "%s%s", filename, "/.index");
+  fs_cp(".beargit/.index", index);
+
+  char *prev = malloc(strlen(filename) + strlen("/.prev") + 1);
+  sprintf(prev, "%s%s", filename, "/.prev");
+  fs_cp(".beargit/.prev", prev);
+
+  FILE* filelist = fopen(".beargit/.index", "r");
+  char file[FILENAME_SIZE];
+  while (fgets(file, sizeof(file), filelist)) {
+    strtok(file, "\n");
+    char *new_file = malloc(strlen(filename) + strlen(file) + 1);
+    sprintf(new_file, "%s/%s", filename, file);
+    fs_cp(file, new_file);
+  }
+  char* commit_message = malloc(strlen(filename) + strlen("/.msg") + 1);
+  sprintf(commit_message, "%s%s", filename, "/.msg");
+  write_string_to_file(commit_message, msg);
+  write_string_to_file(".beargit/.prev", commit_id);
+  fclose(filelist);
+  return 0;
   return 0;
 }
 

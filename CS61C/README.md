@@ -76,3 +76,64 @@ The set of instrucHons a parHcular CPU implements is an **Instruction Set Archit
 Assembly Operands are registers
 
 In Assembly Language, registers have no type; operation determines how register contents are treated
+
+**Overflow** occurs when there is a “mistake” in arithmetic due to the limited precision in computers.
+
+![](./Images/6.png)
+
+
+###### Data Transfer: Load from and Store to memory
+
+![](./Images/7.png)
+
+`Load Word (lw) in MIPS`
+`Store Word (sw) in MIPS`
+`load byte: lb`
+`store byte: sb`
+
+![](./Images/8.png)
+
+
+###### MIPS Logical InstrucHons
+![](./Images/9.png)
+
+
+###### Computer Decision Making
+
+MIPS: if-­‐statement instrucHon is `beq register1,register2,L1`means: go to statement labeled L1 if `(value in register1) == (value in register2)`
+
+
+`slt reg1,reg2,reg3`
+
+```C++
+if (reg2 < reg3) 
+    reg1 = 1; 
+else reg1 = 0;
+```
+
+### Lecture 6: More MIPS, MIPS Func.ons
+
+###### Six Fundamental Steps in Calling a FuncGon
+* Put parameters in a place where funcGon can access them
+* Transfer control to funcGon
+* Acquire (local) storage resources needed for funcGon
+* Perform desired task of the funcGon
+* Put result value in a place where calling code can access it and restore any registers you used
+* Return control to point of origin, since a funcGon can be called from several points in a program
+
+
+---
+`$a0–$a3`: four argument registers to pass parameters
+`$v0–$v1`: two value registers to return values
+`$ra`: one return address register to return to the point of origin
+
+---
+
+In MIPS, all instructions are 4 bytes, and stored in memory just like data. 
+Single instruction to jump and save return address:jump and link (`jal`)
+“link” means form an address or link that points to calling site to allow funcGon to return to proper address
+Jumps to address and simultaneously saves the address of the following instrucGon in register `$ra`
+
+![](./Images/10.png)
+
+![](./Images/11.png)
