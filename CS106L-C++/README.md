@@ -149,3 +149,35 @@ int StringToInteger(const string& str) {
     throw std::domain_error(string("Failed to convert input: ") + str);
 }
 ```
+
+### Lec3
+
+###### mix cin and getline
+
+```C++
+int favNum; 
+cin >> favNum;
+
+string fullName; 
+getline(cin, fullName);
+
+//press enter, then the program just skips the next lines and doest ask for a line 
+```
+
+![](./Images/4.png)
+
+###### Sequence Containers
+
+```C++
+
+std::vector<T>
+
+std::list<T>
+
+std::deque<T>
+```
+![](./Images/5.png)
+
+
+![](./Images/6.png)
+![](./Images/7.png)
