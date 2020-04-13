@@ -90,3 +90,48 @@ A matrix is a set of vectors.
 ![](./Images/9.png)
 
 检验一个linear equations有没有解等同于b是不是A的column的linear combination；
+
+### Lec6
+
+###### Linear dependent
+
+
+### Lec10 What can we know from RREF?
+
+###### Column Correspondence  Theorem
+![Column Correspondence  Theorem](./Images/10.png)
+初等行变换不改变列之间的关系
+
+The elementary row operations change the span of columns.
+
+![初等行变换](./Images/11.png)
+
+矮胖型的一定是线性相关的。
+
+###### RREF v.s. Rank
+
+---
+Rank == Maximum number of Independent Columns == Number of Pivot Column==Number of Non-zero rows
+
+---
+
+Matrix A is full rank if Rank A = min(m,n)
+
+###### Full Rank: Rank = n & Rank = m
+
+*  Rank = n 
+The size of A is mxn,Rank A = n.A is square or 高瘦
+
+---
+The columns of A are linearly independent.->Ax = b has at most one solution
+
+---
+
+* Rank = m
+
+---
+Every row of R contains a pivot position
+
+Ax = b always have solution (at least one solution)
+
+---
