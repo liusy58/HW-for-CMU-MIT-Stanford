@@ -22,3 +22,10 @@ Sample space, S, is set of all possible outcomes of an experiment
 
 ###### Events
 Event, E, is some subset of S.
+
+### Lec3
+General definition of Chain Rule:
+$$
+\begin{array}{l}P\left(E_{1} E_{2} E_{3} \ldots E_{n}\right) \\ \quad=P\left(E_{1}\right) P\left(E_{2} | E_{1}\right) P\left(E_{3} | E_{1} E_{2}\right) \ldots P\left(E_{n} | E_{1} E_{2} \ldots E_{n-1}\right)\end{array}
+$$
+
