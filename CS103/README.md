@@ -42,3 +42,14 @@ So
 Every set is strictly smaller than its power set:
 If S is a set, then |S| < |℘(S)|.
 ![](./Images/4.png)
+
+
+
+### Lec2
+
+For any odd integer $n$, there exist integers $r$ and $s$ where $r^2 – s^2 = n$.
+
+If A and B are sets where A ⊆ B and B ⊆ A, then A = B.
+
+If A and B are sets and A ∪ B ⊆ A ∩ B, then A = B.
+
