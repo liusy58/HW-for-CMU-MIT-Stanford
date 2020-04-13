@@ -1,5 +1,6 @@
 #include <iostream>
-
+#include <fstream>
+#include <sstream>
 #include <QtGui>
 #include <QWidget>
 #include <QApplication>
@@ -120,4 +121,39 @@ void SimpleGraph::drawGraph(SimpleGraph &graph) {
 
 void DrawGraph(SimpleGraph& userGraph) {
     userGraph.drawGraph(userGraph);
+}
+
+void ReadGraph(std::string filename,SimpleGraph& graph)
+{
+    std::ifstream in(filename.c_str());
+    if(!in.is_open())
+    {
+        std::cerr<<"Failed to open the file "<<filename<<endl;
+        exit(1);
+    }
+    size_t cnt;
+    in>>cnt;
+    graph.nodes.resize(cnt);
+    size_t edgeBegin, edgeEnd;
+    while(in>>edgeBegin>>edgeEnd)
+    {
+        Edge temp{edgeBegin, edgeEnd};
+        graph.edges.push_back(temp);
+    }
+    in.close();
+    return;
+
+}
+
+void InitGraph(SimpleGraph& graph)
+{
+    int index=0;
+    int cnt=(int)graph.nodes.size();
+    for(auto &node:graph.nodes)
+    {
+        node.x=cos(2*kPi*index/cnt);
+        node.y=sin(2*kPi*index/cnt);
+        index++;
+    }
+    return ;
 }

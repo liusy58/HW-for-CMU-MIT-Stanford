@@ -18,4 +18,23 @@ void Welcome() {
     cout << "This program uses a force-directed graph layout algorithm" << endl;
     cout << "to render sleek, snazzy pictures of various graphs." << endl;
     cout << endl;
+
+    while(1)
+    {
+        std::string filename;
+        double duration;
+        SimpleGraph graph;
+
+        cout << "Please enter the filename to visualize,quit for qiut" << endl;
+        std::cin>>filename;
+        if(filename=="qiut")
+            break;
+        cout<<"Please enter the Algorithm rumtime duration." << endl;
+        std::cin >> duration;
+
+        ReadGraph(filename,graph);
+
+        InitGraph(graph);
+        DrawGraph(graph);
+    }
 }

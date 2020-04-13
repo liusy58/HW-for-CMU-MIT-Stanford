@@ -14,7 +14,7 @@
 #include <QObject>
 #include <QWidget>
 #include <QTime>
-
+const double kPi = 3.14159265358979323;
 /**
  * Type: Node
  * -----------------------------------------------------------------------
@@ -113,3 +113,6 @@ private:
  * This is a fairly unpleasant hack, but it's necessary.
  */
 #define main _userMain
+
+void ReadGraph(std::string filename,SimpleGraph& graph);
+void InitGraph(SimpleGraph& graph);
