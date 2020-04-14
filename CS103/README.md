@@ -53,3 +53,25 @@ If A and B are sets where A ⊆ B and B ⊆ A, then A = B.
 
 If A and B are sets and A ∪ B ⊆ A ∩ B, then A = B.
 
+### Lec3 Indirect Proofs
+
+###### implication
+An **implication** is a statement of the form If P is true, then Q is true.
+
+###### Set Cardinalities
+There is no largest set.(反证，用幂集)
+
+
+###### Proving Implications
+To prove the implication “If P is true, then Q is true.”
+
+* Direct Proof.
+
+* Proof by Contrapositive.
+Assume not Q and prove not P.
+
+* Proof by Contradiction.
+Assume that P is true and that Q is false.Derive a contradiction.
+
+
+
