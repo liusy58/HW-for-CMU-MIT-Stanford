@@ -135,3 +135,47 @@ Every row of R contains a pivot position
 Ax = b always have solution (at least one solution)
 
 ---
+
+
+### Lec11 Matrix Multiplication
+
+###### 4 ways to understand Matrix Multiplication
+* inner product
+![](./Images/12.png)
+
+* Linear combination of columns
+![](./Images/13.png)
+
+* Linear combination of rows
+![](./Images/14.png)
+
+* summation of matrices
+![](./Images/15.png)
+
+###### The property of the inverse
+![](./Images/16.png)
+
+### Lec12 Inverse of Matrix
+
+
+###### Elementary Row Operation
+![](./Images/17.png)
+
+
+###### one-to-one
+![](./Images/18.png)
+
+###### onto
+![](./Images/19.png)
+
+###### One-to-one and onto
+
+![](./Images/20.png)
+
+
+![](./Images/21.png)
+
+![](./Images/22.png)
+
+![](./Images/23.png)
+第一个显然错误，第二个正确，两边同时取行列式。
