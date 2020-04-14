@@ -181,3 +181,20 @@ std::deque<T>
 
 ![](./Images/6.png)
 ![](./Images/7.png)
+
+### Lec4 Associative Containers
+
+Data is accessed using the key instead of indexes.
+
+```C++
+std::map<T1, T2>//Based on ordering property of keys.
+
+std::set<T>//Based on ordering property of keys.
+
+std::unordered_map<T1, T2>//Based on hash function.
+
+std::unordered_set<T>//Based on hash function.
+
+```
+
+
