@@ -116,3 +116,4 @@ private:
 
 void ReadGraph(std::string filename,SimpleGraph& graph);
 void InitGraph(SimpleGraph& graph);
+void UpdateGraph(SimpleGraph &graph);

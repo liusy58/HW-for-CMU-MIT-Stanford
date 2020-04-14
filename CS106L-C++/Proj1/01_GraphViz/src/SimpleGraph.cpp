@@ -8,7 +8,7 @@
 #include <QCoreApplication>
 #include <QObject>
 #include <QSemaphore>
-
+#include <cmath>
 #include "SimpleGraph.h"
 #undef main
 
@@ -26,7 +26,8 @@ const QString kCircleFill = "#92FCFF";
 const QString kCircleLine = "#0d0d0d";
 const QString kLineColor = "#606060";
 
-
+const double Krepel = 0.001;
+const double Kattract = 0.001;
 
 /* global semaphore to ensure only one update call at a time.
  * Prevents overload of update calls */
@@ -125,6 +126,7 @@ void DrawGraph(SimpleGraph& userGraph) {
 
 void ReadGraph(std::string filename,SimpleGraph& graph)
 {
+    filename="/Users/liusiyu/Downloads/winter/HW-for-CMU-MIT-Stanford/CS106L-C++/Proj1/01_GraphViz/res/"+filename;
     std::ifstream in(filename.c_str());
     if(!in.is_open())
     {
@@ -156,4 +158,50 @@ void InitGraph(SimpleGraph& graph)
         index++;
     }
     return ;
+}
+void UpdateGraph(SimpleGraph &graph)
+{
+    size_t cnt = graph.nodes.size();
+    std::vector<double> deltaX(cnt,0.0);
+    std::vector<double> deltaY(cnt,0.0);
+
+    //computing the repulsive forces
+    for (size_t pos = 0; pos < cnt - 1; pos++)
+    {
+        for (size_t npos = pos + 1; npos < cnt; npos++) {
+            double x0 = graph.nodes.at(pos).x;
+            double y0 = graph.nodes.at(pos).y;
+            double x1 = graph.nodes.at(npos).x;
+            double y1 = graph.nodes.at(npos).y;
+
+            // Repulsive force
+            double fRepel = Krepel / (sqrt((y1 - y0) * (y1 - y0) + (x1 - x0) * (x1 - x0)));
+            double theta = atan2(y1 - y0, x1 - x0);
+            deltaX[pos] -= fRepel * cos(theta);
+            deltaY[pos] -= fRepel * sin(theta);
+            deltaX[npos] += fRepel * cos(theta);
+            deltaY[npos] += fRepel * sin(theta);
+        }
+    }
+        for (Edge edge : graph.edges) {
+            double x0 = graph.nodes.at(edge.start).x;
+            double y0 = graph.nodes.at(edge.start).y;
+            double x1 = graph.nodes.at(edge.end).x;
+            double y1 = graph.nodes.at(edge.end).y;
+
+            double fAttract = Kattract* ((y1 - y0) * (y1 - y0) + (x1 - x0) * (x1 - x0));
+
+            double theta = atan2(y1 - y0, x1 - x0);
+            deltaX[edge.start] += fAttract * cos(theta);
+            deltaY[edge.start] += fAttract * sin(theta);
+            deltaX[edge.end] -= fAttract * cos(theta);
+            deltaY[edge.end] -= fAttract * sin(theta);
+        }
+    for(int i=0;i<cnt;++i)
+    {
+        graph.nodes[i].x+=deltaX[i];
+        graph.nodes[i].y+=deltaY[i];
+    }
+
+
 }

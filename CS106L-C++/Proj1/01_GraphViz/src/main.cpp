@@ -35,6 +35,13 @@ void Welcome() {
         ReadGraph(filename,graph);
 
         InitGraph(graph);
+
         DrawGraph(graph);
+        time_t startTime = time(NULL);
+        while(difftime(time(NULL), startTime) < duration)
+        {
+            UpdateGraph(graph);
+            DrawGraph(graph);
+        }
     }
 }
