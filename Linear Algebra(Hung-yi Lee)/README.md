@@ -179,3 +179,29 @@ Ax = b always have solution (at least one solution)
 
 ![](./Images/23.png)
 第一个显然错误，第二个正确，两边同时取行列式。
+
+
+### Lec13 Subspace
+
+###### Subspace
+![](./Images/24.png)
+
+###### Null Space
+![](./Images/25.png)
+
+###### Column Space and Row Space
+![](./Images/26.png)
+
+###### RREF
+![](./Images/27.png)
+
+### Lec14 Basis
+
+###### Basis
+![](./Images/28.png)
+![](./Images/29.png)
+
+![](./Images/30.png)
+![](./Images/31.png)
+
+
