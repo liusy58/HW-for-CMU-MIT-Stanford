@@ -197,4 +197,59 @@ std::unordered_set<T>//Based on hash function.
 
 ```
 
+### Lec5 Advanced Associative Containers
+
+###### The `std::pair` Class
+
+```C++
+std::pair<string, int> p; 
+p.first = "Phone number"; 
+p.second = 6504550404;
+
+//make a pair
+std::pair<string, int> p{"Phone number", 6504550404}; 
+std::make_pair("Phone number", 6504550404); 
+{"Phone number", 6504550404};
+```
+
+###### Further Usage
+
+
+* sort
+
+
+```C++
+std::sort(vec.begin(), vec.end());
+```
+
+* Find
+```C++
+vec<int>::iterator it = std::find(vec.begin(), vec.end()); 
+if(it != vec.end()) 
+{ cout << "Found: " << *it << endl; } 
+else {
+    cout << "Element not found!" << endl;
+}
+
+```
+
+* `lower_bound/upper_bound`
+
+
+![](./Images/8.png)
+
+* `Multimap`
+```C++
+multimap<int, int> myMMap;
+myMMap.insert(make_pair(3, 3)); 
+myMMap.insert({3, 12}); // shorter syntax 
+cout << myMMap.count(3) << endl; // prints 2
+
+```
+
+###### `auto`
+`auto` is a C++11 feature that uses type deduction.
+
+
+
 
