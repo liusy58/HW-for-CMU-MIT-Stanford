@@ -251,5 +251,78 @@ cout << myMMap.count(3) << endl; // prints 2
 `auto` is a C++11 feature that uses type deduction.
 
 
+### lec6 Templates and Iterators
+
+###### Iterator Uses - Sorting
+
+```C++
+std::sort(vec.begin(), vec.end());
+```
+
+###### Iterator Uses - Find
+```C++
+vec<int>::iterator it = std::find(vec.begin(), vec.end()); 
+if(it != vec.end()) { cout << "Found: " << *it << endl; } 
+else 
+{cout << "Element not found!" << endl;
+}
+
+```
+
+###### More Notes on auto
+
+![](./Images/9.png)
+
+###### Templates
+
+Templates are a blueprint of a function that let you use the same function for a variety of types.
+
+```C++
+template <typename T> 
+T min(T a, T b) { 
+    return (a < b) ? a : b; 
+}
+```
+
+运用模版写输入特定类型的函数
+```C++
+template <typename DataType>
+DataType getType() {
+    while(true) {
+        /* First we get a line of input from the user. */
+        string line;
+        std::getline(cin, line);
+        /*
+         * We'll again use an istringstream because we only want to pull data
+         * out of the stream once we have put the string's contents in it.
+         */
+        std::istringstream converter(line);
+        /*
+         * Try getting an DataType from the stream. If this is not succesful
+         * then user input was not a valid input.
+         */
+        DataType result;
+        if(converter >> result) {
+            /*
+             * See if we can extract a char from the stream.
+             * If so, the user had junk after a valid int in their input.
+             */
+            char remaining;
+            if(converter >> remaining) {
+                cout << "Unexpected character. Try again." << endl;
+            } else {
+                /*
+                 * Input was succesfully converted to DataType with no
+                 * trailing stuff at the end.
+                 */
+                return result;
+            }
+        } else {
+            cout << "Not a valid input. Try again." << endl;
+        }
+    }
+}
+
+```
 
 
