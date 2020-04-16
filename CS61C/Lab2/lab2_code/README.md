@@ -13,5 +13,6 @@ void set_bit(unsigned * x,
 
 
 ###### Exercise 2: Linear feedback shift register
+这个exercise感觉不是很难了，主要要记住如果得到一个n位为0其他数位全为1的数字，用～运算符
 
 

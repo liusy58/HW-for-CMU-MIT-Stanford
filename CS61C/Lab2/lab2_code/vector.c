@@ -49,11 +49,9 @@ vector_t *vector_new() {
 void vector_delete(vector_t *v) {
 	/* Remember, you need to free up ALL the memory that is allocated */
 	/* ADD CODE HERE */
-	if (v != NULL) {    // if some memory has been allocated.
-		free(v -> data);
-		free(v);
-	}
-	// Void method, so no need for return statement.
+	free(v->data);
+	free(v);
+	
 }
 
 /* Return the value in the vector */
@@ -83,24 +81,20 @@ void vector_set(vector_t *v, size_t loc, int value) {
 	/* What do you need to do if the location is greater than the size we have
 	 * allocated?  Remember that unset locations should contain a value of 0.
 	 */
-	int *point;
+	if(loc<v->size)
+	{
+		v->data[loc]=value;
+		return;
+	}
+	int *before=v->data;
+	int *now=malloc(sizeof(int)*(loc+1));
+	for(int i=0;i<v->size;++i)
+		now[i]=before[i];
+	for(int i=v->size;i<=loc;++i)
+		now[i]=0;
+	now[loc]=value;
+	v->data=now;
+	v->size=loc+1;
+	free(before);
 
-	if (loc >= v -> size) {
-	 	size_t size = (loc + 1) * sizeof(int);
-	 	point = (int*) malloc(size);
-	 	if (point) {	// account for location being greater than size allocated.
-	 		bzero(point, size);		// bzero copies n bytes with value 0 into point
-	 		ssize_t x = 0;	// can return a negative value as well;
-	 		while (x < v -> size) {
-	 			point[x] = v -> data[x];
-	 			x += 1;
-	 		}
-	 		free(v -> data);
-	 		v -> data = point;
-	 		v -> size = loc + 1;
-	 	} else {
-	 		allocation_failed();	// extra memory allocation failed.
-	 	}
-	 }
-	 v -> data[loc] = value;
 }
