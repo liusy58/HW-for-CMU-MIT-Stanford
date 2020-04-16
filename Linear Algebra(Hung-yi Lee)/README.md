@@ -205,3 +205,44 @@ Ax = b always have solution (at least one solution)
 ![](./Images/31.png)
 
 
+
+### Lec15 Subspaces associated with a Matrix
+
+![](./Images/32.png)
+
+###### Col A
+![](./Images/33.png)
+
+###### Rank A
+![](./Images/34.png)
+
+###### Null A
+![](./Images/35.png)
+![](./Images/36.png)
+
+###### Row A
+![](./Images/37.png)
+
+![](./Images/38.png)
+
+
+### Lec16 Coordinate System
+
+
+###### Coordinate System
+![](./Images/39.png)
+
+![](./Images/40.png)
+
+###### Other System → Cartesian
+![](./Images/41.png)
+
+###### Cartesian → Other System
+![](./Images/42.png)
+
+###### Equation of ellipse
+![](./Images/43.png)
+![](./Images/44.png)
+![](./Images/45.png)
+
+
