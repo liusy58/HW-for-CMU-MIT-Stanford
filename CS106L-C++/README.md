@@ -338,3 +338,4 @@ std::copy(v.begin(), v.end(), vCopy.begin());
 ###### `std::ostream_iterator`
 
 
+[More Algorithms](https://en.cppreference.com/w/cpp/algorithm)
