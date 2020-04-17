@@ -288,7 +288,7 @@ call_stack::call_stack(const size_t /*num_discard = 0*/) {
             // by subtracting them we get the offset of the function within the file
             // which addr2line can use to look up function line numbers.
 
-            if (dlinfo.dli_fbase > (void*) 0 && trace[i] >= dlinfo.dli_fbase) {
+            if (dlinfo.dli_fbase > (void*) nullptr && trace[i] >= dlinfo.dli_fbase) {
                 e.address2 = (void*) ((long) trace[i] - (long) dlinfo.dli_fbase);
             } else {
                 e.address2 = dlinfo.dli_saddr;

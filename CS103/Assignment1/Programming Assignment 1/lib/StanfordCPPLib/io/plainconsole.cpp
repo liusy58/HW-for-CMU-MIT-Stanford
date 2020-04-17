@@ -131,7 +131,7 @@ public:
             : outstream(&buf),
               outputLimit(limit),
               outputPrinted(0) {
-        setp(0, 0);   // // no buffering, overflow on every char
+        setp(nullptr, nullptr);   // // no buffering, overflow on every char
     }
 
     virtual void setOutputLimit(int limit) {
@@ -165,8 +165,8 @@ void setOutputLimit(int limit) {
 }
 
 void setEcho(bool value) {
-    static EchoingStreambuf* echobufIn = NULL;
-    static std::streambuf* oldBuf = NULL;
+    static EchoingStreambuf* echobufIn = nullptr;
+    static std::streambuf* oldBuf = nullptr;
     
     if (!echobufIn && value) {
         // start to echo user input pulled from cin
@@ -176,8 +176,8 @@ void setEcho(bool value) {
     } else if (echobufIn && !value) {
         // stop echo
         std::cin.rdbuf(oldBuf);
-        oldBuf = NULL;
-        echobufIn = NULL;
+        oldBuf = nullptr;
+        echobufIn = nullptr;
     }
 }
 

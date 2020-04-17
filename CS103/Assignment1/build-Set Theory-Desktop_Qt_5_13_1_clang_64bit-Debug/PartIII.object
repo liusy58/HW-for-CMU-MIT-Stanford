@@ -1,0 +1,21 @@
+# Edit this file by adding in a set that answers the provided question.
+#
+# The object parser accepts a limited set of syntax. Every set must be
+# specified by writing out curly braces with the contents contained
+# within those braces. The good news is that, with the exception of
+# infinite sets and the empty set, this perfectly matches the notation
+# used in discrete mathematics. For example, the set {1, 2, 3} would be
+# written out as just that: {1, 2, 3}. You can nest sets as well, so
+# sets like {1, {2, {3, 4}}} are perfectly fine.
+#
+# To write out the empty set, write {}, a set containing no elements.
+#
+# We unfortunately don't support set-builder notation, set operations
+# like union, intersection, powerset, etc. We also don't support
+# infinite sets.
+#
+# All whitespace is ignored. Any text after a hash mark (#) on a line
+# is treated as a comment and ignored.
+
+
+{{{}},{{{}}}}

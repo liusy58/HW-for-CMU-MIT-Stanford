@@ -73,5 +73,21 @@ Assume not Q and prove not P.
 * Proof by Contradiction.
 Assume that P is true and that Q is false.Derive a contradiction.
 
+### Lec4 Mathematical Logic
+
+###### Propositional Logic
+
+Propositional logic is a mathematical system for reasoning about propositions and how they relate to one another.
+
+Xor：(p V q)∧ ¬(p ∧ q)
 
 
+###### Proof by Contradiction
+![](./Images/5.png)
+
+###### Operator Precedence
+![](./Images/6.png)
+
+###### The Big Table
+
+![](./Images/7.png)

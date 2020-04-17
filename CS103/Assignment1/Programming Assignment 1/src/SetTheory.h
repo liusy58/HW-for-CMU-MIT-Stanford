@@ -80,5 +80,5 @@ bool isSingletonOf(Object S, Object T);
 bool isElementOfPowerSet(Object S, Object T);
 bool isSubsetOfPowerSet(Object S, Object T);
 bool isSubsetOfDoublePowerSet(Object S, Object T);
-
+bool isEqual(Object S, Object T);
 #endif

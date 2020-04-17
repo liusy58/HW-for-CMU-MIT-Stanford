@@ -1,0 +1,3 @@
+# A set containing numbers and sets.
+
+{ 1, { 1 }, 2, { {1}, {2} } }
