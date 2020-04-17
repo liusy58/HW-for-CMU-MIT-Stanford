@@ -325,4 +325,16 @@ DataType getType() {
 
 ```
 
+### Lec7
+
+###### `std::copy`
+
+```C++
+vector<int> v {561, 1105, 1729, 2465};
+vector<int> vCopy(v.size()); 
+std::copy(v.begin(), v.end(), vCopy.begin());
+
+```
+###### `std::ostream_iterator`
+
 
