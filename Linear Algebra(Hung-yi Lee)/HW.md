@@ -1,4 +1,5 @@
 #### Chapter4
+
 ###### 9  Deternine the dimension of(a) Col A, (b) Null A. (c) Row A, and (d) Null $A^T$ .
 
 $$

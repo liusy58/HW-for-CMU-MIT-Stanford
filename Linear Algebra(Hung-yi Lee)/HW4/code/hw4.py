@@ -20,7 +20,7 @@ def load(fname):
     return ret
 
 
-def get_tran(graph):
+def get_tran(g):
     graph = np.array(g, dtype=float)
     nodes = graph.shape[1]
     for node in range(nodes):
@@ -30,9 +30,19 @@ def get_tran(graph):
 
 
 def cal_rank(t, d=0.85, max_iterations=1000, alpha=0.001):
-    line = t.size[0]
-    for _ in range(max_iterations):
+    cnt = t.shape[1]
 
+    R0 = np.ones(shape=(cnt, 1), dtype=float) / cnt
+    R_old = np.ones(shape=(cnt, 1), dtype=float) / cnt
+    R_new = np.ones(shape=(cnt, 1), dtype=float) / cnt
+    for _ in range(max_iterations):
+        R_new = (1 - d) * R0 + d * np.matmul(t, R_old)
+
+        if dist(R_new, R_old) < alpha:
+            break
+
+        R_old = R_new
+    return R_new
 
 
 def save(t, r):

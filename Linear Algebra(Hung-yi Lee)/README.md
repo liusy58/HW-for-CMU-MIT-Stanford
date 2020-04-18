@@ -246,3 +246,31 @@ Ax = b always have solution (at least one solution)
 ![](./Images/45.png)
 
 
+### Lec 17 Function in Coordinate System
+
+![](./Images/46.png)
+
+
+### Lec18 Determinant
+![](./Images/47.png)
+
+![](./Images/48.png)
+
+
+### Lec19 Eigenvalues and Eigenvectors
+
+![](./Images/49.png)
+
+###### Check Eigenvalues
+![](./Images/50.png)
+
+###### Looking for Eigenvalues
+![](./Images/51.png)
+
+###### Characteristic Polynomial
+![](./Images/52.png)
+
+###### Characteristic Polynomial v.s. Eigenspace
+![](./Images/53.png)
+
+
