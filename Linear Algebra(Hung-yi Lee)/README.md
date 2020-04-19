@@ -274,3 +274,65 @@ Ax = b always have solution (at least one solution)
 ![](./Images/53.png)
 
 
+### Lec20
+![](./Images/54.png)
+
+![](./Images/55.png)
+
+
+###### Application of Diagonalization
+
+![](./Images/56.png)
+
+### Lec21 Orthogonality
+
+###### Norm & Distance
+![](./Images/57.png)
+
+###### Dot Product & Orthogonal
+![](./Images/58.png)
+
+###### Triangle Inequality
+![](./Images/59.png)
+
+### Lec22 Orthogonal Projection
+
+###### Orthogonal Complement
+![](./Images/60.png)
+
+
+###### Properties of Orthogonal Complement
+![](./Images/61.png)
+![](./Images/62.png)
+
+
+###### Orthogonal Projection
+![](./Images/63.png)
+
+###### Orthogonal Projection Matrix
+![](./Images/64.png)
+
+
+### Lec23 Orthogonal Basis
+
+###### Orthogonal Set
+![](./Images/65.png)
+![](./Images/66.png)
+
+###### Orthogonal Basis
+
+![](./Images/67.png)
+
+
+### Lec24 Orthogonal Matrices & Symmetric Matrices
+
+###### Norm-preserving
+![](./Images/68.png)
+
+###### Orthogonal Matrix
+![](./Images/69.png)
+
+###### Symmetric Matrices
+![](./Images/70.png)
+
+
