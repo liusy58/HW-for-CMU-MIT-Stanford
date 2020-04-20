@@ -4,7 +4,8 @@
 #include <set>
 #include <memory>
 #include <ostream>
-
+#include<string>
+#include<iostream>
 /* Type: Object
  *
  * An opaque type representing an object, which can either be a set or
@@ -46,6 +47,7 @@ std::ostream& operator<< (std::ostream& out, const Object& obj);
  * { 1, 2, 3 }, this function would return true.
  */
 bool isSet(Object o);
+std::string toString(Object o);
 
 /* Given an object that represents a set, returns a view of
  * that object as a set.
@@ -80,5 +82,4 @@ bool isSingletonOf(Object S, Object T);
 bool isElementOfPowerSet(Object S, Object T);
 bool isSubsetOfPowerSet(Object S, Object T);
 bool isSubsetOfDoublePowerSet(Object S, Object T);
-bool isEqual(Object S, Object T);
 #endif

@@ -91,3 +91,20 @@ Xor：(p V q)∧ ¬(p ∧ q)
 ###### The Big Table
 
 ![](./Images/7.png)
+
+
+### Lec5 Mathematical Logic
+
+###### First-order logic
+First-order logic is a logical system for reasoning about properties of objects.
+![](./Images/8.png)
+
+
+![](./Images/9.png)
+![](./Images/10.png)
+![](./Images/11.png)
+![](./Images/12.png)
+
+###### The Type-Checking Table
+![](./Images/13.png)
+
