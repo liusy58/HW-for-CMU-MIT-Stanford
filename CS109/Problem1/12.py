@@ -17,8 +17,9 @@ def simulator():
         y = temp
     return x < y
 
+
 if __name__ == "__main__":
     num = 0
     for i in range(100000):
         num += simulator()
-    print(num/100000)
+    print("The winning ratio of the second player isn", num / 100000)
