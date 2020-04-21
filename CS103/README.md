@@ -108,3 +108,27 @@ First-order logic is a logical system for reasoning about properties of objects.
 ###### The Type-Checking Table
 ![](./Images/13.png)
 
+
+### Lec6 Binary Relations
+
+###### Binary Relations
+![](./Images/14.png)
+
+###### Partitions
+![](./Images/15.png)
+![](./Images/16.png)
+
+
+###### Refexivity
+![](./Images/17.png)
+
+###### Symmetry
+![](./Images/18.png)
+
+###### Transitivity
+![](./Images/19.png)
+
+###### Equivalence Relations
+![](./Images/20.png)
+
+###### 
