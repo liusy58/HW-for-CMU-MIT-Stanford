@@ -380,8 +380,36 @@ vector<int> v{3, 1, 4, 1, 5};
 ```
 
 
+```C++
+#include<iostream>
+using namespace std;
+class Int {
+private:
+    int n;
+public:
+    Int(int i) :n(i) {};
+    operator int() // 这里就是隐式转换声明，应注意到它与运算符重载的不同之处
+    {
+        return n;
+    }
+};
+int main()
+{
+    Int a(5);
+    int c = a; // 隐式调用转换函数
+    cout << c << endl;
+    cout << a << endl; // 由于未重载Int的<<操作符，将隐式调用转换函数
+    return 0;
+}
+
+```
+
 ###### Lambda Captures
 ![](./Images/12.png)
+
+
+
+
 
 
 
