@@ -344,3 +344,44 @@ std::copy(v.begin(), v.end(), vCopy.begin());
 ### Lec9 Objects and Classes
 ![](./Images/10.png)
 
+
+### Lec10 Functions
+
+###### Operator Overloading
+![](./Images/11.png)
+
+override `<<`
+```C++
+ostream& operator<<(ostream& os, vector<int> x) {
+    os << "{";
+    for(auto i : x) {
+        os << i << " ";
+    }
+    os << "}";
+    return os;
+}
+```
+
+
+###### Lambdas
+```C++
+[capture-list](params) -> ReturnType { // code
+    
+    };
+
+```
+```C++
+
+
+vector<int> v{3, 1, 4, 1, 5};
+ std::sort(v.begin(), v.end(), [](int i, int j) -> bool { return i > j;});
+
+ // sorts vector in decreasing order
+```
+
+
+###### Lambda Captures
+![](./Images/12.png)
+
+
+

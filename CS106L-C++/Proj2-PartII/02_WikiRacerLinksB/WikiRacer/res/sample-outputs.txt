@@ -1,0 +1,98 @@
+These are some sample runs of the program between different pages. Essentially, the code is printing the ladder (vector<string>) every time it is dequeued at the top of the while loop. I encourage you to do the same in your code so that you can compare with this sample output and see if your code is going towards the high priority links first. The later samples will be especially useful. 
+
+As always, feel free to reach out to me if you want to discuss anything!
+
+
+====================================
+Start page: Fruit
+End page: 	Strawberry
+====================================
+
+{Fruit}
+
+Ladder found:
+	Fruit -> Strawberry
+
+
+
+
+====================================
+Start page: Milkshake
+End page: 	Gene
+====================================
+
+{Milkshake}
+{Milkshake, Carbohydrate}
+{Milkshake, Carbohydrate, DNA}
+
+Ladder found:
+	Milkshake -> Carbohydrate -> DNA -> Gene
+
+
+
+
+
+====================================
+Start page: Emu
+End page: 	Savannah
+====================================
+
+{Emu}
+{Emu, Savannah}
+{Emu, Savannah, United_States}
+{Emu, Savannah, United_States, University_of_California,_Berkeley}
+
+Ladder found:
+	Emu -> Savannah -> United_States -> University_of_California,_Berkeley -> Stanford_University
+
+
+
+
+
+
+====================================
+Start page: Gummy_bear
+End page: 	Marc_Tessier-Lavigne
+====================================
+
+{Gummy_bear}
+{Gummy_bear, Vitamin_C}
+{Gummy_bear, Vitamin_C, Oxford_University}
+{Gummy_bear, Vitamin_C, Oxford_University, List_of_Nobel_laureates_by_university_affiliation}
+{Gummy_bear, Vitamin_C, Oxford_University, List_of_Nobel_laureates_by_university_affiliation, Nobel_Prize_laureates_by_secondary_school_affiliation}
+{Gummy_bear, Vitamin_C, Oxford_University, List_of_Nobel_laureates_by_university_affiliation, John_O%27Keefe_(neuroscientist)}
+{Gummy_bear, Vitamin_C, Oxford_University, List_of_Nobel_laureates_by_university_affiliation, John_O%27Keefe_(neuroscientist), Kavli_Prize}
+{Gummy_bear, Vitamin_C, Oxford_University, List_of_Nobel_laureates_by_university_affiliation, Nobel_Prize_laureates_by_secondary_school_affiliation, List_of_Nobel_laureates_by_Secondary_School_affiliation}
+{Gummy_bear, Vitamin_C, Oxford_University, List_of_Nobel_laureates_by_university_affiliation, Rudolph_A._Marcus}
+{Gummy_bear, Vitamin_C, Oxford_University, List_of_Nobel_laureates_by_university_affiliation, Elizabeth_Blackburn}
+{Gummy_bear, Vitamin_C, Oxford_University, List_of_Nobel_laureates_by_university_affiliation, Paul_Nurse}
+
+Ladder found:
+	Gummy_bear -> Vitamin_C -> Oxford_University -> List_of_Nobel_laureates_by_university_affiliation -> Paul_Nurse -> Marc_Tessier-Lavigne
+
+
+
+
+
+
+====================================
+Start page: Albert_Einstein
+End page: 	Scientology
+====================================
+
+{Albert_Einstein}
+{Albert_Einstein, Cosmology}
+{Albert_Einstein, Cosmology, New_York_Times}
+{Albert_Einstein, Cosmology, New_York_Times, Newspaper_of_record}
+{Albert_Einstein, Cosmology, New_York_Times, Newspaper_of_record, United_States}
+{Albert_Einstein, Cosmology, New_York_Times, Newspaper_of_record, United_States, YouTube}
+{Albert_Einstein, Cosmology, New_York_Times, Newspaper_of_record, United_States, Timeline_of_United_States_history}
+{Albert_Einstein, Cosmology, New_York_Times, Newspaper_of_record, United_States, McDonald%27s}
+{Albert_Einstein, Cosmology, New_York_Times, Newspaper_of_record, United_States, War_on_Terror}
+{Albert_Einstein, Cosmology, New_York_Times, Newspaper_of_record, United_States, YouTube, History_of_YouTube}
+{Albert_Einstein, Cosmology, New_York_Times, Newspaper_of_record, United_States, Timeline_of_United_States_history, WikiLeaks}
+
+Ladder found:
+	Albert_Einstein -> Cosmology -> New_York_Times -> Newspaper_of_record -> United_States -> Timeline_of_United_States_history -> WikiLeaks -> Scientology
+
+
