@@ -25,3 +25,17 @@ $$
 ###### Merge Sort
 ![](./Images/3.png)
 
+
+### Lec3
+
+![](./Images/4.png)
+
+###### Select-k problem
+![](./Images/5.png)
+
+
+###### How to pick the pivot
+![](./Images/6.png)
+
+
+
