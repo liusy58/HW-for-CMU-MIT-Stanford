@@ -26,7 +26,7 @@ $$
 ![](./Images/3.png)
 
 
-### Lec3
+### Lec4
 
 ![](./Images/4.png)
 
@@ -36,6 +36,14 @@ $$
 
 ###### How to pick the pivot
 ![](./Images/6.png)
+
+
+
+### Lec5 Randomized algorithms and QuickSort
+
+###### Randomized algorithms
+
+
 
 
 
