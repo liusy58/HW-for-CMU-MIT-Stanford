@@ -131,4 +131,25 @@ First-order logic is a logical system for reasoning about properties of objects.
 ###### Equivalence Relations
 ![](./Images/20.png)
 
-###### 
+
+### Lec7 Binary Relations Part II
+
+![](./Images/22.png)
+
+
+
+###### Prerequisite Structures
+
+
+###### Irrefexivity
+![](./Images/23.png)
+![](./Images/24.png)
+
+###### Asymmetry
+![](./Images/25.png)
+
+
+###### Strict Orders
+![](./Images/26.png)
+
+![](./Images/27.png)
