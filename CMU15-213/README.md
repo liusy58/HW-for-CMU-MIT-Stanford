@@ -70,4 +70,17 @@ Example: Direct Mapped Cache (E = 1)
 ###### Comments
 ![](./Images/15.png)
 
+### Lec13 Code Optimization
+
+###### Reduction in Strength
+![](./Images/17.png)
+
+###### Share Common Subexpressions
+
+![](./Images/18.png)
+
+###### Memory Aliasing
+![](./Images/19.png)
+
+###### 
 
