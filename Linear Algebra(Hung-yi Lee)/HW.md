@@ -14,3 +14,19 @@ If [R c] is in reduced row echelon form, then so is R. If we apply the same row 
 
 ![](./Images/71.png)
 
+
+#### 1.6
+
+###### 69 Let $S_1$ and $S_2$ be finite subsets of $R^n$ such that $S_1$ is contained in $S_2$ Prove that if $S_1$ is a generating set for $R^n$ .then so is $S_2$.
+
+![](./Images/72.png)
+![](./Images/73.png)
+
+###### 70.Lct u und u be any vectors in $R^n$ . Prove that the spans of (u, v) and (u+ v,u- v) arc equal.
+![](./Images/74.png)
+
+###### 71.
+
+
+
+
