@@ -82,5 +82,54 @@ Example: Direct Mapped Cache (E = 1)
 ###### Memory Aliasing
 ![](./Images/19.png)
 
-###### 
+
+### Lec14
+
+###### Linking
+![](./Images/20.png)
+
+###### Why Linkers?
+![](./Images/21.png)
+![](./Images/22.png)
+
+###### What Do Linkers Do?
+![](./Images/23.png)
+![](./Images/24.png)
+
+###### Three Kinds of Object Files (Modules)
+
+![](./Images/25.png)
+
+###### Executable and Linkable Format (ELF)
+
+![](./Images/26.png)
+
+![](./Images/27.png)
+![](./Images/28.png)
+
+###### Linker Symbols
+![](./Images/29.png)
+
+###### Step 1: Symbol Resolution
+![](./Images/30.png)
+
+###### Local Symbols
+![](./Images/31.png)
+
+###### How Linker Resolves Duplicate Symbol Definitions
+![](./Images/32.png)
+
+###### Linker’s Symbol Rules
+
+![](./Images/33.png)
+![](./Images/34.png)
+
+###### Global Variables
+![](./Images/35.png)
+
+###### Linking Example
+![](./Images/36.png)
+
+###### Loading Executable Object Files
+![](./Images/37.png)
 
