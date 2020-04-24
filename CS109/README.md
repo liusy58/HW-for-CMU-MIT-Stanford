@@ -35,3 +35,7 @@ $$
 ###### Probability Mass Function
 
 
+
+### Lec 8 Poisson
+
+A Poisson random variable is ideal for calculating the number of occurrences of an event in a time interval, when you only know the historical rate of that event.
