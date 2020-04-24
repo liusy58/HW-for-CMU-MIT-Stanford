@@ -153,3 +153,28 @@ First-order logic is a logical system for reasoning about properties of objects.
 ![](./Images/26.png)
 
 ![](./Images/27.png)
+
+
+### Lec8 Functions
+
+###### Domains and Codomains
+![](./Images/28.png)
+
+###### Function Composition
+![](./Images/29.png)
+
+###### Injective Functions
+![](./Images/30.png)
+
+###### Injections and Composition
+![](./Images/31.png)
+
+###### Surjective Functions
+
+![](./Images/32.png)
+
+###### Composing Surjections
+![](./Images/33.png)
+
+###### Bijections
+![](./Images/34.png)
