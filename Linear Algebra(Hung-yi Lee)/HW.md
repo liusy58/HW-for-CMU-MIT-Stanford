@@ -22,10 +22,27 @@ If [R c] is in reduced row echelon form, then so is R. If we apply the same row 
 ![](./Images/72.png)
 ![](./Images/73.png)
 
-###### 70.Lct u und u be any vectors in $R^n$ . Prove that the spans of (u, v) and (u+ v,u- v) arc equal.
+###### 70.Let u und u be any vectors in $R^n$ . Prove that the spans of (u, v) and (u+ v,u-v) arc equal.
 ![](./Images/74.png)
 
-###### 71.
+#### 1.7
+
+###### 86
+![](./Images/75.png)
+![](./Images/76.png)
+
+
+###### 95
+![](./Images/77.png)
+
+![](./Images/78.png)
+
+
+###### 97
+![](./Images/79.png)
+
+![](./Images/80.png)
+
 
 
 
