@@ -420,3 +420,18 @@ Another name for an already existing object.
 
 the output is 3 not 2.
 
+
+### Lec 13
+###### Why don't we use global variables?
+![](./Images/14.png)
+
+###### Why Const?
+![](./Images/15.png)
+
+![](./Images/16.png)
+
+![](./Images/17.png)
+
+
+![](./Images/19.png)
+![](./Images/18.png)
