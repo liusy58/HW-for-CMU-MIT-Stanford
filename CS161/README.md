@@ -48,7 +48,12 @@ $$
 
 
 
+### Lec 10
+###### Strongly connected components
 
+![](./Images/7.png)
+![](./Images/8.png)
 
+![](./Images/9.png)
 
 
