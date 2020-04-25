@@ -1,0 +1,12 @@
+# Everyone loves Raymond! Except for Raymond himself.
+
+Person(Raymond)
+Person(A)
+Person(B)
+Person(C)
+
+Loves(A, Raymond)
+Loves(B, Raymond)
+Loves(C, Raymond)
+
+Happy(Raymond)

@@ -1,0 +1,15 @@
+# Mr. Rogers loves everyone! But not himself. How sad. At least he's happy!
+
+Person(Mr. Rogers)
+Person(A)
+Person(B)
+Person(C)
+
+Loves(Mr. Rogers, A)
+Loves(Mr. Rogers, B)
+Loves(Mr. Rogers, C)
+
+Happy(Mr. Rogers)
+Happy(A)
+Happy(B)
+Happy(C)

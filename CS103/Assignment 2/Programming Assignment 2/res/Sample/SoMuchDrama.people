@@ -1,0 +1,16 @@
+# This is not a very stable configuration of people.
+
+Person(A)
+Person(B)
+Person(C)
+Person(D)
+
+Loves(B, A)
+
+Loves(C, D)
+Loves(D, C)
+
+Loves(D, B)
+
+Happy(B)
+Happy(C)

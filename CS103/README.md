@@ -178,3 +178,20 @@ First-order logic is a logical system for reasoning about properties of objects.
 
 ###### Bijections
 ![](./Images/34.png)
+
+
+### Lec9
+
+###### Inverse Functions
+![](./Images/35.png)
+
+
+###### Cardinality
+![](./Images/36.png)
+
+###### Comparing Cardinalities
+![](./Images/37.png)
+
+![](./Images/38.png)
+
+###### 

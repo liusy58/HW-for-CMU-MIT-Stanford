@@ -1,0 +1,21 @@
+# Two groups of people that only interact within themselves.
+
+# Group One
+Person(A)
+Person(B)
+Person(C)
+Happy(A)
+Happy(B)
+Happy(C)
+Loves(A, B)
+Loves(A, C)
+Loves(B, C)
+
+# Group Two
+Person(D)
+Person(E)
+Person(F)
+Loves(D, F)
+Loves(E, D)
+Loves(E, F)
+Loves(F, E)

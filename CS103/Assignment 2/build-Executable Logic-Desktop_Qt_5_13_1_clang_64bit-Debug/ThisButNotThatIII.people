@@ -1,0 +1,48 @@
+# In this file, create a world in which the "this" statement from part (iii)
+# is true, but the "that" statement from that part is false.
+#
+# You can create named people by using the Person() predicate, as in
+#
+#   Person(Grace Hopper)
+#
+# which creates a person name Grace Hopper, or
+#
+#   Person(A)
+#
+# which creates a person named A. You must declare a person with the Person
+# predicate before you can configure their attributes.
+#
+# You can make someone you've already created happy by writing
+#
+#   Happy(Grace Hopper)
+#
+# By default, people are sad.
+#
+# You can make one person love another by using the Loves binary predicate:
+#
+#   Loves(Grace Hopper, A)
+#
+# This makes Grace Hopper love A, but not the other way around.
+#
+# People can love themselves:
+#
+#   Loves(A, A)
+#
+# All blank lines and all lines starting with a # mark are treated as comments
+# and ignored.
+
+# TODO: Delete this sample and put your own group in here.
+
+Person(A)
+Person(B)
+Person(C)
+Person(D)
+
+Loves(A, A)
+Loves(A, B)
+Loves(A, C)
+Loves(A, D)
+
+Loves(B, B)
+Loves(C, C)
+Loves(D, D)

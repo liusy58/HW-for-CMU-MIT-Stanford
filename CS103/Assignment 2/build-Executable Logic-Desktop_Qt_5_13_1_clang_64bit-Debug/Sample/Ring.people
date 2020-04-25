@@ -1,0 +1,14 @@
+# A ring of people that link to one another
+
+Person(A)
+Person(B)
+Person(C)
+Happy(A)
+Happy(C)
+Loves(A, B)
+Loves(B, C)
+Loves(C, A)
+Loves(A, A)
+Loves(A, C)
+Loves(C, C)
+Loves(B, B)
