@@ -435,3 +435,12 @@ the output is 3 not 2.
 
 ![](./Images/19.png)
 ![](./Images/18.png)
+
+
+### Lec14
+
+###### Initalisation vs Assignment
+![](./Images/20.png)
+
+拷贝构造函数需要重载=
+
