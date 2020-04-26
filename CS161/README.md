@@ -56,4 +56,13 @@ $$
 
 ![](./Images/9.png)
 
+### Lec 11
+###### Dijkstra
+![](./Images/10.png)
+
+
+###### Bellman-Ford algorithm
+![](./Images/11.png)
+
+![](./Images/12.png)
 
