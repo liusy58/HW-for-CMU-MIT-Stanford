@@ -194,4 +194,31 @@ First-order logic is a logical system for reasoning about properties of objects.
 
 ![](./Images/38.png)
 
-###### 
+
+
+### Lec10 Graph Theory
+
+###### Graph
+![](./Images/39.png)
+
+###### self-Loops
+![](./Images/40.png)
+
+![](./Images/41.png)
+![](./Images/42.png)
+
+
+###### Connected Components
+![](./Images/43.png)
+
+
+![](./Images/44.png)
+
+![](./Images/45.png)
+
+
+###### Graph Coloring
+![](./Images/46.png)
+
+
+
