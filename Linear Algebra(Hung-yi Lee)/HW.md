@@ -89,3 +89,21 @@ If [R c] is in reduced row echelon form, then so is R. If we apply the same row 
 ![](./Images/98.png)
 ![](./Images/99.png)
 
+
+
+#### 2.4
+
+###### 68
+![](./Images/100.png)
+![](./Images/101.png)
+
+###### 69
+![](./Images/102.png)
+![](./Images/103.png)
+
+
+###### 71
+![](./Images/104.png)
+![](./Images/105.png)
+
+
