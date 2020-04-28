@@ -234,6 +234,9 @@ First-order logic is a logical system for reasoning about properties of objects.
 
 ![](./Images/52.png)
 
+![](./Images/53.png)
+![](./Images/54.png)
+
 
 
 ###### The Handshaking Lemma
