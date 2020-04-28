@@ -1,0 +1,39 @@
+# The strict subset relation. The master set here is {1, 2, 3}.
+# Each base-10 number represents which elements are selected.
+
+Element(0)
+Element(1)
+Element(2)
+Element(3)
+Element(12)
+Element(13)
+Element(23)
+Element(123)
+
+# The empty set is a strict subset of everything.
+0R1
+0R2
+0R3
+0R12
+0R13
+0R23
+0R123
+
+# Singleton sets
+1R12
+1R13
+1R123
+
+2R12
+2R23
+2R123
+
+3R13
+3R23
+3R123
+
+# Doubleton sets
+
+12R123
+13R123
+23R123

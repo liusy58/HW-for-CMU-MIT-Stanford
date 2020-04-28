@@ -1,0 +1,62 @@
+# Strict divisbility over {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
+# this is the relation "x divides y, and x != y. "
+
+Element(0)
+Element(1)
+Element(2)
+Element(3)
+Element(4)
+Element(5)
+Element(6)
+Element(7)
+Element(8)
+Element(9)
+Element(10)
+Element(11)
+Element(12)
+
+# Everything divides 0.
+1R0
+2R0
+3R0
+4R0
+5R0
+6R0
+7R0
+8R0
+9R0
+10R0
+11R0
+12R0
+
+# 1 divides everything.
+1R0
+1R2
+1R3
+1R4
+1R5
+1R6
+1R7
+1R8
+1R9
+1R10
+1R11
+1R12
+
+# And the remaining ones.
+2R4
+2R6
+2R8
+2R10
+2R12
+
+3R6
+3R9
+3R12
+
+4R8
+4R12
+
+5R10
+
+6R12

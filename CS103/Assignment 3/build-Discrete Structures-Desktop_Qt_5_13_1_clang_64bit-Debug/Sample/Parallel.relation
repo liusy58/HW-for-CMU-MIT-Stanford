@@ -1,0 +1,42 @@
+# A strict order consisting of several parallel structures that don't overlap one another.
+#
+# Its Hasse diagram looks like this:
+#
+#
+#   3
+#   |
+#   2    7
+#   |   / \
+#   1  5   6
+#   |   \ /
+#   0    4    8
+
+Element(0)
+Element(1)
+Element(2)
+Element(3)
+
+0R1
+0R2
+0R3
+
+1R2
+1R3
+
+2R3
+
+
+Element(4)
+Element(5)
+Element(6)
+Element(7)
+
+4R5
+4R6
+4R7
+
+5R7
+
+6R7
+
+Element(8)

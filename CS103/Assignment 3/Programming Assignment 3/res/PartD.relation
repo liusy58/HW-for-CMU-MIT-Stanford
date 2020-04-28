@@ -1,0 +1,41 @@
+# Edit this file to define a binary relation that is irreflexive, asymmetric, but not transitive.
+#
+# Our driver program is designed to parse binary relations over integers. To define a binary relation, you'll
+# need to define the underlying domain of the relation, then indicate which pairs the relation holds between.
+#
+# To add an element of the underlying domain, use the Element() predicate:
+#
+#    Element(137)
+#    Element(42)
+#    Element(103)
+#
+# Remember that elements must be integers.
+#
+# Once you've defined the underlying elements, you can say where the relation R holds by writing lines like these:
+#
+#    137 R 42
+#    137 R 137
+#    42  R 103
+#
+# Integer values must be introduced before you say where relations hold between them.
+
+# This is just a sample. Feel free to replace it with your own solution.
+Element(0)
+Element(1)
+Element(2)
+Element(3)
+Element(4)
+Element(5)
+Element(6)
+
+0R2
+1R3
+2R4
+3R5
+4R6
+5R0
+6R1
+
+0R0
+2R2
+4R4

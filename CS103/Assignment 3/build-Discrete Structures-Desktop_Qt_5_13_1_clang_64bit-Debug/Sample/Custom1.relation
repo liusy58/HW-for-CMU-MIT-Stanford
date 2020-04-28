@@ -1,0 +1,25 @@
+# A custom relation. Nothing fancy here.
+
+Element(0)
+Element(1)
+Element(2)
+Element(3)
+Element(4)
+Element(5)
+
+0R0
+
+1R1
+1R2
+2R1
+2R2
+
+3R3
+3R4
+3R5
+4R3
+4R4
+4R5
+5R3
+5R4
+5R5

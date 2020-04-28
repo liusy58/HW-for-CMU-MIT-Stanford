@@ -153,6 +153,7 @@ First-order logic is a logical system for reasoning about properties of objects.
 ![](./Images/26.png)
 
 ![](./Images/27.png)
+![](./Images/47.png)
 
 
 ### Lec8 Functions
@@ -221,4 +222,21 @@ First-order logic is a logical system for reasoning about properties of objects.
 ![](./Images/46.png)
 
 
+### Lec11
+
+
+###### Degrees
+![](./Images/50.png)
+
+
+
+![](./Images/51.png) 
+
+![](./Images/52.png)
+
+
+
+###### The Handshaking Lemma
+![](./Images/48.png) 
+![](./Images/49.png)   
 
