@@ -1,6 +1,7 @@
 #include "BinaryRelations.h"
 #include <stdexcept>
-#include<iostream>
+#include <iostream>
+#include <unordered_map>
 using namespace std;
 /* Given a binary relation R, returns whether R is reflexive. */
 bool isReflexive(Relation R) {
@@ -29,7 +30,7 @@ bool isSymmetric(Relation R) {
     for(auto edge:R.r)
     {
         auto vertice1=edge.first;
-        auto vertice2=edge.first;
+        auto vertice2=edge.second;
         auto edge2=make_pair(vertice2,vertice1);
         if(find(R.r.begin(),R.r.end(),edge2)==R.r.end())
             return false;
@@ -43,10 +44,13 @@ bool isAsymmetric(Relation R) {
     for(auto edge:R.r)
     {
         auto vertice1=edge.first;
-        auto vertice2=edge.first;
+        auto vertice2=edge.second;
         auto edge2=make_pair(vertice2,vertice1);
         if(find(R.r.begin(),R.r.end(),edge2)!=R.r.end())
+        {
+            cout<<"In isAsymmetric"<<vertice1<<"      "<<vertice2<<endl;
             return false;
+        }
     }
     return true;
 }
@@ -132,10 +136,46 @@ namespace { // Make this function private to this .cpp file.
  * The order in which you return the equivalence classes is irrelevant.
  * Just make sure to hand back each equivalence class exactly once.
  */
+bool allvisited(Relation const &R,std::unordered_map<int,bool>&visited)
+{
+    for(auto vertices:R.domain)
+        if(!visited[vertices])
+            return false;
+    return true;
+}
+int pickone(Relation const &R,std::unordered_map<int,bool>&visited)
+{
+    for(auto vertices:R.domain)
+        if(!visited[vertices])
+            return vertices;
+}
+void DFS(std::set<int>&equivalenceClasse,int vertice,Relation const &R,std::unordered_map<int,bool>&visited)
+{
+    if(visited[vertice])
+        return;
+
+    visited[vertice]=true;
+    equivalenceClasse.insert(vertice);
+    for(auto edge:R.r)
+    {
+        if(edge.first==vertice)
+            DFS(equivalenceClasse,edge.second,R,visited);
+    }
+}
 std::vector<std::set<int>> equivalenceClassesOf(Relation R) {
     std::vector<std::set<int>>res;
+    std::unordered_map<int,bool>visited;
+    for(auto vertices:R.domain)
+        visited[vertices]=false;
+    while(!allvisited(R,visited))
+    {
+        auto vertice =pickone(R,visited);
+        std::set<int>equivalenceClasse;
+        DFS(equivalenceClasse,vertice,R,visited);
+        res.push_back(equivalenceClasse);
+    }
 
-
+    return res;
 }
 
 /* Given a binary relation R, which you can assume is a strict order,

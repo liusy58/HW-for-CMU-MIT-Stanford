@@ -28,14 +28,8 @@ Element(4)
 Element(5)
 Element(6)
 
-0R2
-1R3
-2R4
-3R5
-4R6
-5R0
-6R1
+0R1
 
-0R0
-2R2
-4R4
+2R3
+1R3
+

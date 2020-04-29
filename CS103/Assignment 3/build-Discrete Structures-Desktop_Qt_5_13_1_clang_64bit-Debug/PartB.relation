@@ -20,18 +20,10 @@
 # Integer values must be introduced before you say where relations hold between them.
 
 # This is just a sample. Feel free to replace it with your own solution.
-Element(51)
+Element(1)
 Element(100)
 
 Element(116)
 Element(109)
 
-51R51
-51R100
-100R51
-100R100
 
-116R116
-109R116
-109R109
-116R109

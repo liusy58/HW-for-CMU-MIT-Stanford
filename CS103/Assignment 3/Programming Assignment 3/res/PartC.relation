@@ -20,10 +20,4 @@
 # Integer values must be introduced before you say where relations hold between them.
 
 # This is just a sample. Feel free to replace it with your own solution.
-Element(1)
-Element(2)
 
-1R1
-2R2
-1R2
-2R1

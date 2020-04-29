@@ -20,16 +20,12 @@
 # Integer values must be introduced before you say where relations hold between them.
 
 # This is just a sample. Feel free to replace it with your own solution.
-Element(103)
-Element(106)
-Element(107)
-Element(109)
-Element(110)
-Element(161)
+Element(1)
+Element(2)
+Element(3)
 
-106R103
-106R109
-103R109
-109R161
-106R107
-107R110
+
+1R2
+2R3
+3R2
+
