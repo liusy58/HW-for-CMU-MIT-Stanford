@@ -64,5 +64,25 @@ $$
 ###### Bellman-Ford algorithm
 ![](./Images/11.png)
 
+
 ![](./Images/12.png)
+
+
+
+### Lec12 Dynamic Programming 
+![](./Images/13.png)
+![](./Images/14.png)
+
+
+### Lec13 More dynamic programming!
+###### Longest Common Subsequence
+![](./Images/15.png)
+
+
+###### Knapsack Problem
+![](./Images/16.png)
+
+
+limit the number:
+![](./Images/17.png)
 
