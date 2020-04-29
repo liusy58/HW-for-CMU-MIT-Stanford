@@ -187,7 +187,22 @@ std::vector<std::set<int>> equivalenceClassesOf(Relation R) {
  * of a relation R always has the exact same domain as R itself.
  */
 Relation coverOf(Relation R) {
-    /* TODO: Delete this comment and the next two lines, then implement this function. */
-    (void) R; // Silence warnings about unused parameters
-    throw std::runtime_error("Not implemented!");
+    Relation *res=new Relation();
+    for(auto vertice:R.domain)
+        res->domain.insert(vertice);
+    for(auto edge1:R.r)
+    {
+        auto vertice1=edge1.first;
+        auto vertice2=edge1.second;
+        bool flag=0;
+        for(auto vertice:R.domain)
+            if(find(R.r.begin(),R.r.end(),make_pair(vertice1,vertice))!=R.r.end()&&find(R.r.begin(),R.r.end(),make_pair(vertice,vertice2))!=R.r.end())
+            {
+                flag=1;
+                break;
+            }
+        if(!flag)
+            res->r.insert(edge1);
+    }
+    return *res;
 }
