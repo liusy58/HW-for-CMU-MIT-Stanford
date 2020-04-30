@@ -118,4 +118,6 @@ If [R c] is in reduced row echelon form, then so is R. If we apply the same row 
 ![](./Images/108.png)
 ![](./Images/109.png)
 
+### 2.8
 
+###### 
