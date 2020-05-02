@@ -120,4 +120,5 @@ If [R c] is in reduced row echelon form, then so is R. If we apply the same row 
 
 ### 2.8
 
-###### 
+
+### 3.1
