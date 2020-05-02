@@ -32,4 +32,17 @@ G:not strict order->not strict weak order
 H:strict weak order
 
 
+###### Problem Six: Strict Weak Orders and Equivalence Classes
 
+i by definition,easy to complete
+ii
+{y|p~$_{R}$y}
+
+
+iii
+(137,103)
+
+
+###### Problem Seven: Strict Weak Orders in Theoryland
+
+![](./Images/6.png)
