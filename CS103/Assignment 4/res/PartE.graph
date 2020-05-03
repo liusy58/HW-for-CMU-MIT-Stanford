@@ -1,0 +1,51 @@
+# Your task is to edit this file to define a graph G where omega(G) != chi(G)
+# (that is, the clique number of G is not the same as the chromatic number of G.)
+#
+# You can define a graph by using the Node predicate to define each node
+# in the graph and the Edge predicate to define each edge. The Node predicate
+# takes in a single argument representing the name of the node, which can be
+# just about anything. For example, the line
+#
+#    Node(A)
+#
+# defines a node named A,
+#
+#    Node(137)
+#
+# defines a node named 137, and
+#
+#    Node(The Color Purple)
+#
+# defines a node named The Color Purple.
+#
+# To introduce an edge, use the Edge predicate, which takes in two arguments
+# and adds an edge between those endpoint nodes. For example, the line
+#
+#    Edge(A, B)
+#
+# adds an edge between A and B. Because we're talking about undirected
+# graphs here, the order of the arguments is irrelevant. Both of the nodes
+# mentioned in the Edge predicate must have previously been defined in the
+# file. Self-loops are not permitted.
+#
+# All blank lines are ignored. Anything after a hash mark (#) is ignored.
+
+# TODO: Delete the sample graph below and create your own!
+
+Node(A)
+Node(B)
+Node(C)
+Node(D)
+Node(E)
+Node(F)
+
+Edge(A, B)
+Edge(B, C)
+Edge(A, C)
+
+Edge(D, E)
+Edge(E, F)
+Edge(F, D)
+
+Edge(C, D)
+Edge(A, F)

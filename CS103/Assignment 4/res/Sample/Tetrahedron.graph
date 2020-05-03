@@ -1,0 +1,13 @@
+# Graph whose nodes represent corners of a tetrahedron and whose edges represent
+# the edges of a tetrahedon.
+
+Node(A)
+Node(B)
+Node(C)
+Node(D)
+Edge(A, B)
+Edge(A, C)
+Edge(A, D)
+Edge(B, C)
+Edge(B, D)
+Edge(C, D)

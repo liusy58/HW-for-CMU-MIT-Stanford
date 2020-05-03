@@ -1,0 +1,28 @@
+# A 4-regular graph with 8 nodes (that is, a graph with 8 nodes where every node
+# has degree 4.) Regular graphs often work well as counterexamples to claims
+# about graphs and often are computationally tricky to reason about.
+
+Node(A)
+Node(B)
+Node(C)
+Node(D)
+Node(E)
+Node(F)
+Node(G)
+Node(H)
+Edge(A, B)
+Edge(A, C)
+Edge(B, C)
+Edge(B, D)
+Edge(C, D)
+Edge(C, E)
+Edge(D, E)
+Edge(D, F)
+Edge(E, F)
+Edge(E, G)
+Edge(F, G)
+Edge(F, H)
+Edge(G, H)
+Edge(G, A)
+Edge(H, A)
+Edge(H, B)

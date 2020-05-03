@@ -1,0 +1,15 @@
+# Just a little doodad graph. Nothing special here!
+
+Node(A)
+Node(B)
+Node(C)
+Node(D)
+Node(E)
+Node(F)
+Edge(A, B)
+Edge(B, C)
+Edge(A, D)
+Edge(B, D)
+Edge(B, E)
+Edge(E, F)
+Edge(F, A)

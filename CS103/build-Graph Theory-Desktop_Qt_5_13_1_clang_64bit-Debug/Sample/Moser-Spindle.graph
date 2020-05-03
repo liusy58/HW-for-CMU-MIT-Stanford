@@ -1,0 +1,21 @@
+# The Moser Spindle. Look up the Hadwiger-Nelson problem for more information about
+# why this graph is important. It has a chromatic number of four.
+
+Node(A)
+Node(B)
+Node(C)
+Node(D)
+Node(E)
+Node(F)
+Node(G)
+Edge(A, B)
+Edge(B, C)
+Edge(C, D)
+Edge(D, E)
+Edge(E, A)
+Edge(A, F)
+Edge(D, F)
+Edge(E, F)
+Edge(A, G)
+Edge(B, G)
+Edge(C, G)

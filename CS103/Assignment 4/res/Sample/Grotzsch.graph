@@ -1,0 +1,37 @@
+# Grotzch graph: a triangle-free graph (a graph with no 3-cliques) whose chromatic
+# number is 4.
+
+Node(O1)
+Node(O2)
+Node(O3)
+Node(O4)
+Node(O5)
+Node(I1)
+Node(I2)
+Node(I3)
+Node(I4)
+Node(I5)
+Node(C1)
+
+Edge(O1, O2)
+Edge(O2, O3)
+Edge(O3, O4)
+Edge(O4, O5)
+Edge(O5, O1)
+
+Edge(I1, C1)
+Edge(I2, C1)
+Edge(I3, C1)
+Edge(I4, C1)
+Edge(I5, C1)
+
+Edge(O1, I5)
+Edge(O1, I2)
+Edge(O2, I1)
+Edge(O2, I3)
+Edge(O3, I2)
+Edge(O3, I4)
+Edge(O4, I3)
+Edge(O4, I5)
+Edge(O5, I4)
+Edge(O5, I1)

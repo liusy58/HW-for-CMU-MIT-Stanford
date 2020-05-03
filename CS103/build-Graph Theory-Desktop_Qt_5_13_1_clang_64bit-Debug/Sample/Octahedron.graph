@@ -1,0 +1,21 @@
+# Graph whose nodes represent corners of an octahedron and whose edges represent
+# the edges of a octahedron.
+
+Node(A)
+Node(B)
+Node(C)
+Node(D)
+Node(E)
+Node(F)
+Edge(A, B)
+Edge(B, C)
+Edge(C, D)
+Edge(D, E)
+Edge(E, F)
+Edge(F, A)
+Edge(A, C)
+Edge(B, D)
+Edge(C, E)
+Edge(D, F)
+Edge(E, A)
+Edge(F, B)

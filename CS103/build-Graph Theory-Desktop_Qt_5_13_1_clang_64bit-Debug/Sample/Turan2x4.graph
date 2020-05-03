@@ -1,0 +1,44 @@
+# The Turan(2, 4) graph.
+#
+# This is a 4-partite graph (the nodes can be split into four groups where each edge runs
+# between different groups) that's a complete 4-partite graph (all possible edges that meet
+# the above criteria are present).
+
+Node(A1)
+Node(A2)
+Node(B1)
+Node(B2)
+Node(C1)
+Node(C2)
+Node(D1)
+Node(D2)
+
+Edge(A1, B1)
+Edge(A1, B2)
+Edge(A1, C1)
+Edge(A1, C2)
+Edge(A1, D1)
+Edge(A1, D2)
+
+Edge(A2, B1)
+Edge(A2, B2)
+Edge(A2, C1)
+Edge(A2, C2)
+Edge(A2, D1)
+Edge(A2, D2)
+
+Edge(B1, C1)
+Edge(B1, C2)
+Edge(B1, D1)
+Edge(B1, D2)
+
+Edge(B2, C1)
+Edge(B2, C2)
+Edge(B2, D1)
+Edge(B2, D2)
+
+Edge(C1, D1)
+Edge(C1, D2)
+
+Edge(C2, D1)
+Edge(C2, D2)

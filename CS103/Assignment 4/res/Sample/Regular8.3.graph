@@ -1,0 +1,24 @@
+# A 3-regular graph with 8 nodes (that is, a graph with 8 nodes where every node
+# has degree 3.) Regular graphs often work well as counterexamples to claims
+# about graphs and often are computationally tricky to reason about.
+
+Node(A)
+Node(B)
+Node(C)
+Node(D)
+Node(E)
+Node(F)
+Node(G)
+Node(H)
+Edge(A, B)
+Edge(B, C)
+Edge(C, D)
+Edge(D, E)
+Edge(E, F)
+Edge(F, G)
+Edge(G, H)
+Edge(H, A)
+Edge(A, C)
+Edge(D, F)
+Edge(E, G)
+Edge(H, B)

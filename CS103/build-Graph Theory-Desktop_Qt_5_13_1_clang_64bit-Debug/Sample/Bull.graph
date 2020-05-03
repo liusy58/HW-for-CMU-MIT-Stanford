@@ -1,0 +1,12 @@
+# The "Bull Graph" formed from a triangle with two "horns" jutting out.
+
+Node(A)
+Node(B)
+Node(C)
+Node(D)
+Node(E)
+Edge(A, B)
+Edge(B, C)
+Edge(C, A)
+Edge(A, D)
+Edge(B, E)

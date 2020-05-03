@@ -1,0 +1,23 @@
+# Graph whose nodes represent corners of a cube and whose edges represent
+# the edges of a cube.
+
+Node(A)
+Node(B)
+Node(C)
+Node(D)
+Node(E)
+Node(F)
+Node(G)
+Node(H)
+Edge(A, B)
+Edge(B, C)
+Edge(C, D)
+Edge(D, A)
+Edge(E, F)
+Edge(F, G)
+Edge(G, H)
+Edge(H, E)
+Edge(A, E)
+Edge(B, F)
+Edge(C, G)
+Edge(D, H)

@@ -1,0 +1,20 @@
+# The "Utility Graph" of three houses A, B, and C that each need water, gas, and power.
+#
+# This is also called a complete bipartite graph (specifically, it's K_{3, 3}) or the
+# Turan(3, 2) graph.
+
+Node(Water)
+Node(Gas)
+Node(Power)
+Node(A)
+Node(B)
+Node(C)
+Edge(Water, A)
+Edge(Water, B)
+Edge(Water, C)
+Edge(Gas, A)
+Edge(Gas, B)
+Edge(Gas, C)
+Edge(Power, A)
+Edge(Power, B)
+Edge(Power, C)
