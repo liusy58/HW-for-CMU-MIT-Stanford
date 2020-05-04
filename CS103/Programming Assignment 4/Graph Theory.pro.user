@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.10.0, 2020-05-04T11:09:35. -->
+<!-- Written by QtCreator 4.10.0, 2020-05-03T23:26:56. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -305,7 +305,7 @@
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">Graph Theory</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:/Users/liusiyu/Downloads/winter/HW-for-CMU-MIT-Stanford/CS103/Assignment 4/Graph Theory.pro</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:/Users/liusiyu/Downloads/winter/HW-for-CMU-MIT-Stanford/CS103/Programming Assignment 4/Graph Theory.pro</value>
     <value type="QString" key="RunConfiguration.Arguments"></value>
     <value type="uint" key="RunConfiguration.QmlDebugServerPort">3768</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>

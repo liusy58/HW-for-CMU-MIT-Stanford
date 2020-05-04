@@ -278,9 +278,19 @@ First-order logic is a logical system for reasoning about properties of objects.
 
 
 ###### Closure Properties
+
 ![](./Images/68.png)
 
 
+
+### Lec16
+
+![](./Images/69.png)
+![](./Images/70.png)
+![](./Images/71.png)
+
+###### The Kleene Closure
+![](./Images/72.png)
 
 
 
