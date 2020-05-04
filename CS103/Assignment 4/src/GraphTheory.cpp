@@ -21,10 +21,22 @@ bool isIndependentSet(Graph G, std::set<Node> I) {
  * C is a vertex cover of G.
  */
 bool isVertexCover(Graph G, std::set<Node> C) {
-    /* TODO: Delete this line, the next three lines, and implement this function. */
-    (void) G; // Silence compiler warnings about unused parameters
-    (void) C;
-    throw std::runtime_error("Not implemented!");
+    //保证子集的关系
+    for(auto node:C)
+        if(!G.count(node))
+            return false;
+
+
+    for(auto temp:G)
+    {
+        auto node1=temp.first;
+        if(C.count(node1))
+            continue;
+        for(auto node2:temp.second)
+            if(!C.count(node2))
+                return false;
+    }
+    return true;
 }
 
 /* Given a graph G, a map assigning colors to all the nodes in G, and a number k,
@@ -39,19 +51,33 @@ bool isVertexCover(Graph G, std::set<Node> C) {
  * need to use all k colors.
  */
 bool isKVertexColoring(Graph G, std::map<Node, Color> colors, std::size_t k) {
-    /* TODO: Delete this line, the next four lines, and implement this function. */
-    (void) G; // Silence compiler warnings about unused parameters
-    (void) colors;
-    (void) k;
-    throw std::runtime_error("Not implemented!");
+    for(auto g:G)
+    {
+        auto node1=g.first;
+        auto color1=colors[node1];
+        for(auto node2:g.second)
+        {
+            auto color2=colors[node2];
+            if(color1==color2)
+                return false;
+        }
+    }
+    return true;
 }
 
 /* Given a graph G = (V, E) and a set K subset V, returns whether
  * K is a clique in G.
  */
 bool isClique(Graph G, std::set<Node> K) {
-    /* TODO: Delete this line, the next three lines, and implement this function. */
-    (void) G; // Silence compiler warnings about unused parameters
-    (void) K;
-    throw std::runtime_error("Not implemented!");
+    for(auto node1:K)
+    {
+        for(auto node2:K)
+        {
+            if(node1==node2)
+                continue;
+            if(!G[node1].count(node2)&&!G[node2].count(node1))
+                return false;
+        }
+    }
+    return true;
 }
