@@ -1,6 +1,6 @@
 #include "CounterfeitCoins.h"
 #include <stdexcept>
-
+#include<iostream>
 /* A helpful function you might want to use in the course of solving this problem. */
 namespace { // Keep this function private to this file.
     bool isPowerOfThree(size_t n) {
@@ -57,26 +57,51 @@ Coin maybeCounterfeitIn(std::vector<Coin> coins, Balance balance) {
     /* Helpful little check to make sure each recursive call is given the right number
      * of coins. You can delete this if you'd like, but we'd recommend against it. :-)
      */
+    std::cout<<coins.size()<<std::endl;
 //    if (!isPowerOfThree(coins.size() + 1)) {
 //        throw std::invalid_argument("Input number of coins must be one less than a power of three.");
 //    }
-    if(coins.size()==1)
-        return coins[0];
-    int len=(int)coins.size()/3-1;
+
+    if(coins.size()==2)
+    {
+        std::vector<Coin> pack1 = takeFrom(coins, 1);
+        std::vector<Coin> pack2 = takeFrom(coins, 1);
+        int res=weigh(balance,pack1,pack2);
+        if(res==-1)
+            return pack1[0];
+        if(res==1)
+            return pack2[0];
+        return None;
+    }
+    if(coins.size()==3)
+    {
+        std::vector<Coin> pack1 = takeFrom(coins, 1);
+        std::vector<Coin> pack2 = takeFrom(coins, 1);
+        std::vector<Coin> pack3 = takeFrom(coins, 1);
+        int res=weigh(balance,pack1,pack2);
+        if(res==-1)
+            return pack1[0];
+        if(res==1)
+            return pack2[0];
+        res=weigh(balance,pack1,pack3);
+        if(res==-1)
+            return pack1[0];
+        if(res==1)
+            return pack2[0];
+        return None;
+    }
+    int len=(int)(coins.size()+1)/3;
+    std::cout<<" !!!"<<len<<std::endl;
+
+
     std::vector<Coin> pack1 = takeFrom(coins, len);
     std::vector<Coin> pack2 = takeFrom(coins, len);
-    std::vector<Coin> pack3 = takeFrom(coins, len);
 
-    std::vector<Coin> pack4 = takeFrom(coins, 1);
-    std::vector<Coin> pack5 = takeFrom(coins, 1);
+
     int res=weigh(balance,pack1,pack2);
     if(!res)
     {
-        if(pack4[0]==pack5[0])
-            return None;
-        else if(pack4[0]>pack5[0])
-            return pack4[0];
-        return pack5[0];
+        return  maybeCounterfeitIn(coins,balance);
 
     }
     else if(res==-1)
