@@ -306,3 +306,17 @@ First-order logic is a logical system for reasoning about properties of objects.
 
 ![](./Images/76.png)
 ![](./Images/77.png)
+
+
+
+### Lec19
+![](./Images/78.png)
+
+![](./Images/79.png)
+
+### Lec20
+![](./Images/80.png)
+![](./Images/81.png)
+
+
+

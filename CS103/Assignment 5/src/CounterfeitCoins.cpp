@@ -100,10 +100,7 @@ Coin maybeCounterfeitIn(std::vector<Coin> coins, Balance balance) {
 
     int res=weigh(balance,pack1,pack2);
     if(!res)
-    {
         return  maybeCounterfeitIn(coins,balance);
-
-    }
     else if(res==-1)
         return maybeCounterfeitIn(pack1,balance);
     return maybeCounterfeitIn(pack2,balance);
