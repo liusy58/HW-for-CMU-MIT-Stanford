@@ -74,7 +74,7 @@ class DVRouter(DVRouterBase):
         self.table[host] = TableEntry(dst=host,
                                       port=port,
                                       latency=self.ports.get_latency(port),
-                                      expire_time=FOREVER)
+                                      expire_time=api.current_time() +FOREVER)
 
     def handle_data_packet(self, packet, in_port):
         """
@@ -126,7 +126,13 @@ class DVRouter(DVRouterBase):
         accordingly.
         """
         # TODO: fill this in!
-        return
+        for host, entry in list(self.table.items()):
+            if entry.expire_time == FOREVER:
+                continue
+            if api.current_time() >= entry.expire_time:
+                self.s_log(host, entry)
+                del self.table[host]
+        
 
     """
         Implement the handle_route_advertisement method, which is called by the framework when your router receives a route advertisement from a neighbor. This method should update the router’s table with the better of the current route and the new route, or, if the two routes have equal performance, break ties by choosing the new route. Each time you receive a route advertisement, you should set the route‘s expiry time route to ROUTE_TTL seconds in the future (15 s by default).
@@ -151,27 +157,20 @@ class DVRouter(DVRouterBase):
         else:
             new_latency = route_latency + self.ports.get_latency(port)
             old_latency = self.table[route_dst].latency
-
-            
             """
             if the candidate route for replacement comes from the same port shown in the current route for the same destination, then we should always update that route.
             """
             if port == self.table[route_dst].port:
                 new_expire_time = api.current_time() + self.ROUTE_TTL
                 if self.table[route_dst].expire_time == FOREVER:
-                    new_expire_time = FOREVER
+                    return
                 self.table[route_dst] = TableEntry(dst=route_dst,
                                                    port=port,
                                                    latency=new_latency,
                                                    expire_time=new_expire_time)
                 return
             if new_latency >= old_latency:
-                port = self.table[route_dst].port
-                self.table[route_dst] = TableEntry(
-                    dst=route_dst,
-                    port=port,
-                    latency=old_latency,
-                    expire_time=api.current_time() + self.ROUTE_TTL)
+                return
             else:
                 del self.table[route_dst]
                 self.table[route_dst] = TableEntry(
@@ -179,7 +178,6 @@ class DVRouter(DVRouterBase):
                     port=port,
                     latency=new_latency,
                     expire_time=api.current_time() + self.ROUTE_TTL)
-        #print(self.table[route_dst].expire_time)
 
     def handle_link_up(self, port, latency):
         """
