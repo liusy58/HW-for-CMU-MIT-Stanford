@@ -22,7 +22,7 @@ class DVRouter(DVRouterBase):
 
     # -----------------------------------------------
     # At most one of these should ever be on at once
-    SPLIT_HORIZON = False
+    SPLIT_HORIZON = True
     POISON_REVERSE = False
     # -----------------------------------------------
 
@@ -74,7 +74,7 @@ class DVRouter(DVRouterBase):
         self.table[host] = TableEntry(dst=host,
                                       port=port,
                                       latency=self.ports.get_latency(port),
-                                      expire_time=api.current_time() +FOREVER)
+                                      expire_time=api.current_time() + FOREVER)
 
     def handle_data_packet(self, packet, in_port):
         """
@@ -118,6 +118,8 @@ class DVRouter(DVRouterBase):
         for host, entry in self.table.items():
             pkt = RoutePacket(destination=entry.dst, latency=entry.latency)
             for port in router_ports:
+                if self.SPLIT_HORIZON is True and port == entry.port:
+                    continue
                 self.send(pkt, port)
 
     def expire_routes(self):
@@ -132,7 +134,6 @@ class DVRouter(DVRouterBase):
             if api.current_time() >= entry.expire_time:
                 self.s_log(host, entry)
                 del self.table[host]
-        
 
     """
         Implement the handle_route_advertisement method, which is called by the framework when your router receives a route advertisement from a neighbor. This method should update the router’s table with the better of the current route and the new route, or, if the two routes have equal performance, break ties by choosing the new route. Each time you receive a route advertisement, you should set the route‘s expiry time route to ROUTE_TTL seconds in the future (15 s by default).
