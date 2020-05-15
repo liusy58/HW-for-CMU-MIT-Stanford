@@ -137,15 +137,14 @@ class DVRouter(DVRouterBase):
         for host, entry in list(self.table.items()):
             if entry.expire_time == FOREVER:
                 continue
-            if self.POISON_REVERSE is True and entry.latency == INFINITY:
-                self.table[host] = TableEntry(
-                    dst=host,
-                    port=port,
-                    latency=self.ports.get_latency(port),
-                    expire_time=api.current_time() + INFINITY)
-                continue
             if api.current_time() >= entry.expire_time:
-                self.s_log(host, entry)
+                if self.POISON_EXPIRED is True:
+                    port = self.table[host].port
+                    self.table[host]=TableEntry(dst=host,
+                                      port=port,
+                                      latency=INFINITY,
+                                      expire_time=api.current_time() +self.ROUTE_TTL)
+                    continue
                 del self.table[host]
 
     """
