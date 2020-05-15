@@ -22,8 +22,8 @@ class DVRouter(DVRouterBase):
 
     # -----------------------------------------------
     # At most one of these should ever be on at once
-    SPLIT_HORIZON = True
-    POISON_REVERSE = False
+    SPLIT_HORIZON = False
+    POISON_REVERSE = True
     # -----------------------------------------------
 
     # Determines if you send poison for expired routes
@@ -116,10 +116,16 @@ class DVRouter(DVRouterBase):
         # TODO: fill this in!
         router_ports = self.ports.get_all_ports()
         for host, entry in self.table.items():
-            pkt = RoutePacket(destination=entry.dst, latency=entry.latency)
             for port in router_ports:
+                pkt = RoutePacket(destination=entry.dst, latency=entry.latency)
+                # split horizon
                 if self.SPLIT_HORIZON is True and port == entry.port:
                     continue
+            
+                # poison reverse.
+                if self.POISON_REVERSE is True and port == entry.port:
+                    pkt = RoutePacket(destination=entry.dst, latency=INFINITY)
+
                 self.send(pkt, port)
 
     def expire_routes(self):
@@ -188,6 +194,7 @@ class DVRouter(DVRouterBase):
         :param latency: the link latency.
         :returns: nothing.
         """
+        #print("in handle_link_up", port)
         self.ports.add_port(port, latency)
 
         # TODO: fill in the rest!
@@ -199,6 +206,7 @@ class DVRouter(DVRouterBase):
         :param port: the port number used by the link.
         :returns: nothing.
         """
+        print("!!!!!!in handle_link_down", port)
         self.ports.remove_port(port)
 
         # TODO: fill this in!
