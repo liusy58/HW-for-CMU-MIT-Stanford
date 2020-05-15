@@ -121,7 +121,7 @@ class DVRouter(DVRouterBase):
                 # split horizon
                 if self.SPLIT_HORIZON is True and port == entry.port:
                     continue
-            
+
                 # poison reverse.
                 if self.POISON_REVERSE is True and port == entry.port:
                     pkt = RoutePacket(destination=entry.dst, latency=INFINITY)
@@ -136,6 +136,13 @@ class DVRouter(DVRouterBase):
         # TODO: fill this in!
         for host, entry in list(self.table.items()):
             if entry.expire_time == FOREVER:
+                continue
+            if self.POISON_REVERSE is True and entry.latency == INFINITY:
+                self.table[host] = TableEntry(
+                    dst=host,
+                    port=port,
+                    latency=self.ports.get_latency(port),
+                    expire_time=api.current_time() + INFINITY)
                 continue
             if api.current_time() >= entry.expire_time:
                 self.s_log(host, entry)
