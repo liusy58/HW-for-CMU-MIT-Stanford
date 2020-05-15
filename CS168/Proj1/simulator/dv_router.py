@@ -156,13 +156,19 @@ class DVRouter(DVRouterBase):
 
         # TODO: fill this in!
         if route_dst not in self.table.keys():
+            if route_latency == INFINITY:
+                return
             self.table[route_dst] = TableEntry(
                 dst=route_dst,
                 port=port,
                 latency=self.ports.get_latency(port) + route_latency,
                 expire_time=api.current_time() + self.ROUTE_TTL)
         else:
-            new_latency = route_latency + self.ports.get_latency(port)
+            new_latency = 0
+            if route_latency == INFINITY:
+                new_latency = route_latency
+            else:
+                new_latency = route_latency + self.ports.get_latency(port)
             old_latency = self.table[route_dst].latency
             """
             if the candidate route for replacement comes from the same port shown in the current route for the same destination, then we should always update that route.
