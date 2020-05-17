@@ -1,0 +1,7 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "junit-4.13.jar",
+        "aopalliance.jar"
+    ]
+}
