@@ -7,7 +7,7 @@ import java.util.LinkedList;
  */
 public class ArrayDequeSolution<Item> extends LinkedList<Item> {
     public void printDeque() {
-        System.out.println("dummy");
+        System.out.println(super.toString());
     }
 
     public Item getRecursive(int i) {
