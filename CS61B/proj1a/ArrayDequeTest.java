@@ -131,8 +131,5 @@ public class ArrayDequeTest {
             else
                 break;
         }
-
-
-
     }
 }

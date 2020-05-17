@@ -35,10 +35,13 @@ public class ArrayDeque<T> {
         if(full())
         {
             resize(max_size*2);
+            printDeque();
         }
         size+=1;
         front=(front-1+max_size)%max_size;
         items[front]=(T)item;
+
+
     }
 
     public void addLast(T item)
@@ -99,11 +102,24 @@ public class ArrayDeque<T> {
     private void resize(int capacity) {
         System.out.println("now is in the resize function!");
         T[] a = (T[]) new Object[capacity];
-        int cnt=0;
-        while(cnt<size)
+//        int cnt=0;
+//        while(cnt<size)
+//        {
+//            a[cnt]=(T)get(cnt);
+//            cnt++;
+//        }
+//        max_size*=2;
+//        front=0;
+//        rear=size;
+//        items = a;
+        if(front<rear)
         {
-            a[cnt]=(T)get(cnt);
-            cnt++;
+            System.arraycopy(items,front,a,0,size-1);
+        }
+        else
+        {
+            System.arraycopy(items,front,a,0,size-front+1);
+            System.arraycopy(items,0,a,size-front+1,rear);
         }
         max_size*=2;
         front=0;
