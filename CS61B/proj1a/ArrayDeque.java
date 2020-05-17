@@ -11,7 +11,7 @@ public class ArrayDeque<T> {
     {
         size=0;
         front=rear=0;
-        max_size=10;
+        max_size=2;
         items = (T[]) new Object[max_size];
     }
 
@@ -34,13 +34,10 @@ public class ArrayDeque<T> {
     {
         if(full())
         {
-            max_size*=2;
-            resize(max_size);
+            resize(max_size*2);
         }
         size+=1;
         front=(front-1+max_size)%max_size;
-        System.out.println("the front is %d in addFirst");
-        System.out.println(front);
         items[front]=(T)item;
     }
 
@@ -48,12 +45,11 @@ public class ArrayDeque<T> {
     {
         if(full())
         {
-            max_size*=2;
-            resize(max_size);
+            resize(max_size*2);
         }
         size+=1;
         items[rear]=item;
-        rear=(rear+1)%max_size;
+        rear=(rear+1+max_size)%max_size;
     }
 
     public boolean isEmpty()
@@ -64,7 +60,7 @@ public class ArrayDeque<T> {
 
     public boolean full()
     {
-        return (rear+1)%max_size == front;
+        return (rear+1+max_size)%max_size == front;
     }
 
 
@@ -78,7 +74,7 @@ public class ArrayDeque<T> {
         while(_front!=rear)
         {
             System.out.println(items[_front]);
-            _front=(_front+1)%max_size;
+            _front=(_front+1+max_size)%max_size;
         }
     }
 
@@ -88,7 +84,7 @@ public class ArrayDeque<T> {
             return (T)null;
         size-=1;
         T res=(T)items[front];
-        front=(front+1)%max_size;
+        front=(front+1+max_size)%max_size;
         return res;
     }
     public T removeLast()
@@ -96,20 +92,29 @@ public class ArrayDeque<T> {
         if(isEmpty())
             return (T)null;
         size-=1;
-        T res=items[(rear-1)%max_size];
-        rear=(rear-1)%max_size;
+        T res=items[(rear-1+max_size)%max_size];
+        rear=(rear-1+max_size)%max_size;
         return res;
     }
     private void resize(int capacity) {
+        System.out.println("now is in the resize function!");
         T[] a = (T[]) new Object[capacity];
-        System.arraycopy(items, 0, a, 0, size);
+        int cnt=0;
+        while(cnt<size)
+        {
+            a[cnt]=(T)get(cnt);
+            cnt++;
+        }
+        max_size*=2;
+        front=0;
+        rear=size;
         items = a;
     }
     public T get(int index)
     {
         if(index>=size)
             return (T)null;
-        index=(index+front)%max_size;
+        index=(index+front+max_size)%max_size;
         return items[index];
     }
 }

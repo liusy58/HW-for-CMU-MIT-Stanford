@@ -1,3 +1,4 @@
+import java.util.Scanner;
 public class ArrayDequeTest {
     /* Utility method for printing out empty checks. */
     public static boolean checkEmpty(boolean expected, boolean actual) {
@@ -83,10 +84,55 @@ public class ArrayDequeTest {
     }
 
     public static void main(String[] args) {
-        System.out.println("Running tests.\n");
-        addIsEmptySizeTest();
-        addRemoveTest();
+//        System.out.println("Running tests.\n");
+//        addIsEmptySizeTest();
+//        addRemoveTest();
+//
+//        System.out.println("hello!!!");
+        System.out.println("Please input the instructions like the following format\n" +
+                "ih [num]:insert [num] to the head \n" +
+                "it:[num]:insert [num] to the tail\n"+
+                "dh :delete the first element of the array\n"+
+                "dt :delete the last element of the array\n"+
+                "dis: display the array");
 
-        System.out.println("hello!!!");
+        ArrayDeque<String> array = new ArrayDeque<String>();
+        Scanner in = new Scanner(System.in);
+        while(true)
+        {
+            System.out.println("Please input the instruction");
+            String name = in.nextLine();
+            if(name.equals("ih"))
+            {
+                String num=in.nextLine();
+                array.addFirst(num);
+            }
+            else if(name.equals("it"))
+            {
+                String num=in.nextLine();
+                array.addLast(num);
+            }
+            else if(name.equals("dh"))
+            {
+                array.removeFirst();
+            }
+            else if(name.equals("dh"))
+            {
+                array.removeFirst();
+            }
+            else if(name.equals("dt"))
+            {
+                array.removeLast();
+            }
+            else if(name.equals("dis"))
+            {
+                array.printDeque();
+            }
+            else
+                break;
+        }
+
+
+
     }
 }
