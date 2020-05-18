@@ -134,8 +134,8 @@ public class GuitarPlayer {
                     strings[note].pluck();
                 } else {
                     // status
-                    int d = data[j++] & 0xFF;
-                    int d2 = data[j++] & 0xFF;
+//                    int d = data[j++] & 0xFF;
+//                    int d2 = data[j++] & 0xFF;
                 }
             }
         }

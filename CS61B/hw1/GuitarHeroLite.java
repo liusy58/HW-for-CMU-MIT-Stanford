@@ -11,17 +11,18 @@ public class GuitarHeroLite {
         GuitarString stringC = new GuitarString(CONCERT_C);
 
         while (true) {
-
+            //System.out.println("hello");
             /* check if the user has typed a key; if so, process it */
-            if (StdDraw.hasNextKeyTyped()) {
-                char key = StdDraw.nextKeyTyped();
-                if (key == 'a') {
-                    stringA.pluck();
-                } else if (key == 'c') {
-                    stringC.pluck();
-                }
-            }
-
+//            if (StdDraw.hasNextKeyTyped()) {
+//                char key = StdDraw.nextKeyTyped();
+//                if (key == 'a') {
+//                    stringA.pluck();
+//                } else if (key == 'c') {
+//                    stringC.pluck();
+//                }
+//            }
+            stringA.pluck();
+            stringC.pluck();
         /* compute the superposition of samples */
             double sample = stringA.sample() + stringC.sample();
 
