@@ -18,6 +18,13 @@ public class Point {
         return y;
     }
 
+    public void change(Point other)
+    {
+        this.x=other.getX();
+        this.y=other.getY();
+    }
+
+
     /**
      * Returns the euclidean distance (L2 norm) squared between two points
      * (x1, y1) and (x2, y2). Note: This is the square of the Euclidean distance,
@@ -47,6 +54,7 @@ public class Point {
         Point otherPoint = (Point) other;
         return getX() == otherPoint.getX() && getY() == otherPoint.getY();
     }
+
 
     @Override
     public int hashCode() {
