@@ -1,0 +1,32 @@
+{
+	// See https://go.microsoft.com/fwlink/?LinkId=733558
+	// for the documentation about the tasks.json format
+	"version": "2.0.0",
+	"tasks": [
+	  {
+		"label": "compile",
+		"type": "shell",
+		"command": "clang++",
+		"args": [
+		  "${fileDirname}/*.cpp",
+		  "-lm",
+		  "-g",
+		  "-Wall",
+		  "-std=c++14",
+		  "-o",
+		  "${workspaceFolder}/tmp"
+		],
+		"presentation": {
+		  "echo": true,
+		  "reveal": "silent",
+		  "focus": false,
+		  "panel": "shared",
+		  "showReuseMessage": false
+		},
+		"problemMatcher": {
+		  "base": "$gcc",
+		  "fileLocation": "absolute"
+		}
+	  }
+	]
+  }
