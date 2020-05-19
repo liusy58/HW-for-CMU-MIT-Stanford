@@ -17,8 +17,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static bearmaps.proj2c.utils.Constants.SEMANTIC_STREET_GRAPH;
-import static bearmaps.proj2c.utils.Constants.ROUTE_LIST;
+import static bearmaps.proj2c.utils.Constants.*;
 
 /**
  * Handles requests from the web browser for map images. These images
@@ -84,11 +83,86 @@ public class RasterAPIHandler extends APIRouteHandler<Map<String, Double>, Map<S
      */
     @Override
     public Map<String, Object> processRequest(Map<String, Double> requestParams, Response response) {
-        //System.out.println("yo, wanna know the parameters given by the web browser? They are:");
-        //System.out.println(requestParams);
+        System.out.println("yo, wanna know the parameters given by the web browser? They are:");
+        System.out.println(requestParams);
         Map<String, Object> results = new HashMap<>();
-        System.out.println("Since you haven't implemented RasterAPIHandler.processRequest, nothing is displayed in "
-                + "your browser.");
+//        System.out.println("Since you haven't implemented RasterAPIHandler.processRequest, nothing is displayed in "
+//                + "your browser.");
+        results.put("query_success",true);
+        double lrlon=requestParams.get("lrlon");
+        double ullon=requestParams.get("ullon");
+        double ullat=requestParams.get("ullat");
+        double lrlat=requestParams.get("lrlat");
+        if(lrlon<ullon||ullat<lrlat)
+        {
+            results.put("query_success",false);
+        }
+        double LonDPP=(Math.abs(lrlon-ullon))/256;
+        int index=0;
+        double res_LonDPP=0.000171661376953125*2;
+        //Have the greatest LonDPP that is less than or equal to the LonDPP of the query box
+        while(res_LonDPP>LonDPP)
+        {
+            index++;
+            res_LonDPP/=2;
+        }
+        int cnt=(int)Math.pow(2,index);
+        System.out.println(cnt);
+
+        double delta_lon=(Math.abs(ROOT_LRLON-ROOT_ULLON))/cnt;
+        double delta_lat=(Math.abs(ROOT_LRLAT-ROOT_ULLAT))/cnt;
+
+        int col_begin=0;
+        int col_end=cnt-1;
+
+        int line_begin=0;
+        int line_end=cnt-1;
+        double raster_ul_lon=ROOT_ULLON;
+        double raster_lr_lon=ROOT_LRLON;
+        double raster_ul_lat=ROOT_ULLAT;
+        double raster_lr_lat=ROOT_LRLAT;
+        if(ullon>=ROOT_ULLON&&ullon<=ROOT_LRLON)
+        {
+            col_begin=(int)Math.floor((ullon-ROOT_ULLON)/delta_lon);
+            raster_ul_lon+=col_begin*delta_lon;
+        }
+        else if(ullon>ROOT_LRLON)
+        {
+            results.put("query_success",false);
+        }
+
+
+        if(lrlon>=ROOT_ULLON&&lrlon<=ROOT_LRLON)
+        {
+            col_end=(int)Math.ceil((lrlon-ROOT_ULLON)/delta_lon);
+            raster_lr_lon-=(cnt-col_end)*delta_lon;
+        }
+        else if(lrlon<ROOT_ULLON)
+        {
+            results.put("query_success",false);
+        }
+
+        if(lrlat>=ROOT_LRLAT&&lrlat<=ROOT_ULLAT)
+        {
+            line_begin=(int)Math.floor((lrlat-ROOT_LRLAT)/delta_lat);
+            raster_lr_lat+=line_begin*delta_lat;
+        }
+        else if(lrlat>ROOT_ULLAT)
+        {
+            results.put("query_success",false);
+        }
+
+        if(ullat>=ROOT_LRLAT&&ullat<=ROOT_ULLAT)
+        {
+            line_end=(int)Math.ceil((ullat-ROOT_LRLAT)/delta_lat);
+            raster_lr_lat-=(cnt-line_end)*delta_lat;
+        }
+        else if(ullat<ROOT_LRLAT)
+        {
+            results.put("query_success",false);
+        }
+
+
         return results;
     }
 
