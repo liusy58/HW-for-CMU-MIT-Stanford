@@ -40,7 +40,12 @@ public class ArrayHeapMinPQ<T> implements ExtrinsicMinPQ<T>{
     {
         //assertEquals(array.size(),item2index.size());
         if(item2index.containsKey(item))
+        {
+            System.out.println(item2index.size());
+            System.out.println(item2index.toString());
             throw new IllegalArgumentException("error!");
+        }
+
         ArrayNode new_node=new ArrayNode(item,priority);
         array.add(new_node);
         item2index.put(item,size()-1);
@@ -84,8 +89,8 @@ public class ArrayHeapMinPQ<T> implements ExtrinsicMinPQ<T>{
         if(!contains(item))
             throw new NoSuchElementException("");
         int index=item2index.get(item);
-        modify_down2up(index);
-        modify_up2down(index);
+        delete(index);
+        add(item,priority);
     }
     private int parent(int index)
     {
@@ -137,22 +142,34 @@ public class ArrayHeapMinPQ<T> implements ExtrinsicMinPQ<T>{
 
     private void delete(int index)
     {
+        if(size()==1)
+        {
+            item2index.clear();
+            array.clear();
+            return;
+        }
         //System.out.println("index is "+index);
        // assertEquals(array.size(),item2index.size());
+        if(index>=size())
+            return;
 
         T res=array.get(index).item;
+        T temp=array.get(size()-1).item;
         Collections.swap(array,index,size()-1);
+
         array.remove(size()-1);
         item2index.remove(res);
+        item2index.put(temp,index);
         int _parent=parent(index);
-        if(_parent<=0)
-            modify_up2down(index);
-        else if(array.get(_parent).compareTo(array.get(index))==1)
-            modify_down2up(index);
-        else
-            modify_up2down(index);
-//        modify_up2down(index);
-//        modify_down2up(index);
+        //System.out.println("now in delete "+_parent+"   "+index);
+//        if(_parent<=0)
+//            modify_up2down(index);
+//        else if(array.get(_parent).compareTo(array.get(index))==1)
+//            modify_down2up(index);
+//        else
+//            modify_up2down(index);
+        modify_up2down(index);
+        modify_down2up(index);
     }
     public void show()
     {

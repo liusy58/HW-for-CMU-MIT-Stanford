@@ -18,6 +18,11 @@ public class NaiveMinPQ<T> implements ExtrinsicMinPQ<T> {
     public NaiveMinPQ() {
         items = new ArrayList<>();
     }
+    public void show()
+    {
+        for(int i=0;i<items.size();++i)
+            System.out.println(items.get(i).item+"   "+items.get(i).priority);
+    }
 
     /** Note this method does not throw the proper exception,
      *  otherwise it is painfully slow (linear time).
@@ -110,5 +115,7 @@ public class NaiveMinPQ<T> implements ExtrinsicMinPQ<T> {
         public int hashCode() {
             return item.hashCode();
         }
+
+
     }
 }
