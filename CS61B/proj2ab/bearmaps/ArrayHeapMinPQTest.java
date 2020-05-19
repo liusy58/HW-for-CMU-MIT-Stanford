@@ -6,6 +6,8 @@ import java.util.Random;
 
 public class ArrayHeapMinPQTest {
 
+
+
     @Test
     public void test() {
         Random rand = new Random();
@@ -30,6 +32,45 @@ public class ArrayHeapMinPQTest {
             assertTrue(minHeap.removeSmallest().equals(navie.removeSmallest()));
 
         }
+
+    }
+    @Test
+    public void testtime()
+    {
+        System.out.println("Test time for my ArrayHeapMinPQ");
+        ArrayHeapMinPQ<Integer> minHeap = new ArrayHeapMinPQ<>();
+        Random rand = new Random();
+        long start = System.currentTimeMillis();
+        for (int j = 0; j < 20000; j += 1) {
+            Double prio=rand.nextDouble();
+            minHeap.add(j,prio);
+        }
+        long end = System.currentTimeMillis();
+        System.out.println("Time elapsed: " + (end - start) / 1000.0 +  " seconds.");
+
+        start = System.currentTimeMillis();
+        for (int j = 0; j < 20000; j += 1) {
+            minHeap.removeSmallest();
+        }
+        end = System.currentTimeMillis();
+        System.out.println("Time elapsed: " + (end - start) / 1000.0 +  " seconds.");
+
+        System.out.println("Test time for NavieHeapMinPQ");
+        NaiveMinPQ<Integer> navie=new NaiveMinPQ<>();
+        start = System.currentTimeMillis();
+        for (int j = 0; j < 20000; j += 1) {
+            Double prio=rand.nextDouble();
+            navie.add(j,prio);
+        }
+        end = System.currentTimeMillis();
+        System.out.println("Time elapsed: " + (end - start) / 1000.0 +  " seconds.");
+
+        start = System.currentTimeMillis();
+        for (int j = 0; j < 20000; j += 1) {
+            navie.removeSmallest();
+        }
+        end = System.currentTimeMillis();
+        System.out.println("Time elapsed: " + (end - start) / 1000.0 +  " seconds.");
 
     }
 }
