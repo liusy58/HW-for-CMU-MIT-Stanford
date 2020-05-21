@@ -93,38 +93,49 @@ public class RasterAPIHandler extends APIRouteHandler<Map<String, Double>, Map<S
         double ullon=requestParams.get("ullon");
         double ullat=requestParams.get("ullat");
         double lrlat=requestParams.get("lrlat");
+        double w=requestParams.get("w");
+
+
         if(lrlon<ullon||ullat<lrlat)
         {
             results.put("query_success",false);
         }
-        double LonDPP=(Math.abs(lrlon-ullon))/256;
+        double LonDPP=(Math.abs(lrlon-ullon))/w;
+
+        System.out.println("LonDPP: "+LonDPP);
         int index=0;
-        double res_LonDPP=0.000171661376953125*2;
+        double res_LonDPP=(ROOT_LRLON - ROOT_ULLON)/TILE_SIZE;
         //Have the greatest LonDPP that is less than or equal to the LonDPP of the query box
         while(res_LonDPP>LonDPP)
         {
             index++;
-            res_LonDPP/=2;
+            res_LonDPP=(ROOT_LRLON - ROOT_ULLON)/(TILE_SIZE*Math.pow(2,index));
+            System.out.println("index: "+index+"   res_LonDPP:"+res_LonDPP);
         }
+        index=Math.min(index,7);
         int cnt=(int)Math.pow(2,index);
-        System.out.println(cnt);
+        System.out.println("cnt:"+cnt);
 
-        double delta_lon=(Math.abs(ROOT_LRLON-ROOT_ULLON))/cnt;
-        double delta_lat=(Math.abs(ROOT_LRLAT-ROOT_ULLAT))/cnt;
-
+        double delta_lon=(Math.abs(ROOT_LRLON-ROOT_ULLON))/(double)cnt;
+        double delta_lat=(Math.abs(ROOT_LRLAT-ROOT_ULLAT))/(double)cnt;
+        System.out.println("delta_lon:"+delta_lon+"  delta_lat:"+delta_lat);
         int col_begin=0;
         int col_end=cnt-1;
 
         int line_begin=0;
         int line_end=cnt-1;
+
+
         double raster_ul_lon=ROOT_ULLON;
         double raster_lr_lon=ROOT_LRLON;
         double raster_ul_lat=ROOT_ULLAT;
         double raster_lr_lat=ROOT_LRLAT;
+
+
         if(ullon>=ROOT_ULLON&&ullon<=ROOT_LRLON)
         {
             col_begin=(int)Math.floor((ullon-ROOT_ULLON)/delta_lon);
-            raster_ul_lon+=col_begin*delta_lon;
+            raster_ul_lon=ROOT_ULLON+col_begin*((Math.abs(ROOT_LRLON-ROOT_ULLON))/(double)cnt);
         }
         else if(ullon>ROOT_LRLON)
         {
@@ -134,8 +145,11 @@ public class RasterAPIHandler extends APIRouteHandler<Map<String, Double>, Map<S
 
         if(lrlon>=ROOT_ULLON&&lrlon<=ROOT_LRLON)
         {
+
             col_end=(int)Math.ceil((lrlon-ROOT_ULLON)/delta_lon);
-            raster_lr_lon-=(cnt-col_end)*delta_lon;
+            raster_lr_lon=ROOT_ULLON+col_end*((Math.abs(ROOT_LRLON-ROOT_ULLON))/(double)cnt);
+
+            System.out.println("!!!! col_end is "+col_end);
         }
         else if(lrlon<ROOT_ULLON)
         {
@@ -144,8 +158,10 @@ public class RasterAPIHandler extends APIRouteHandler<Map<String, Double>, Map<S
 
         if(lrlat>=ROOT_LRLAT&&lrlat<=ROOT_ULLAT)
         {
-            line_begin=(int)Math.floor((lrlat-ROOT_LRLAT)/delta_lat);
-            raster_lr_lat+=line_begin*delta_lat;
+
+            line_end=(int)Math.ceil((ROOT_ULLAT-lrlat)/delta_lat);
+            raster_lr_lat=ROOT_ULLAT-line_end*((Math.abs(ROOT_LRLAT-ROOT_ULLAT))/(double)cnt);
+            System.out.println("@@@@the line_end is "+line_end);
         }
         else if(lrlat>ROOT_ULLAT)
         {
@@ -154,15 +170,51 @@ public class RasterAPIHandler extends APIRouteHandler<Map<String, Double>, Map<S
 
         if(ullat>=ROOT_LRLAT&&ullat<=ROOT_ULLAT)
         {
-            line_end=(int)Math.ceil((ullat-ROOT_LRLAT)/delta_lat);
-            raster_lr_lat-=(cnt-line_end)*delta_lat;
+            line_begin=(int)Math.floor((ROOT_ULLAT-ullat)/delta_lat);
+            raster_ul_lat=ROOT_ULLAT-line_begin*((Math.abs(ROOT_LRLAT-ROOT_ULLAT))/(double)cnt);
+            System.out.println("@@@@the line_begin is"+line_begin);
         }
         else if(ullat<ROOT_LRLAT)
         {
             results.put("query_success",false);
         }
+        col_end=Math.min(cnt-1,col_end);
+        col_begin=Math.max(0,col_begin);
+        line_end=Math.min(cnt-1,line_end);
+        line_begin=Math.max(0,line_begin);
 
+        int col_cnt=(col_end-col_begin);
+        int line_cnt=(line_end-line_begin);
+        String[][] str=new String[line_cnt][col_cnt];
+        System.out.println("col_begin:"+col_begin+"   col_end:"+col_end);
+        System.out.println("line_begin:"+line_begin+"   line_end:"+line_end);
+        for(int i=line_begin;i<line_end;++i)
+        {
+            for(int j=col_begin;j<col_end;++j)
+            {
+                str[i-line_begin][j-col_begin]=new String("d"+index+"_x"+j+"_y"+i+".png");
+            }
+        }
 
+        /*
+
+         * "render_grid"   : String[][], the files to display. <br>
+         * "raster_ul_lon" : Number, the bounding upper left longitude of the rastered image. <br>
+         * "raster_ul_lat" : Number, the bounding upper left latitude of the rastered image. <br>
+         * "raster_lr_lon" : Number, the bounding lower right longitude of the rastered image. <br>
+         * "raster_lr_lat" : Number, the bounding lower right latitude of the rastered image. <br>
+         * "depth"         : Number, the depth of the nodes of the rastered image;
+         *                    can also be interpreted as the length of the numbers in the image
+         *                    string. <br>
+         * "query_success" : Boolean, whether the query was able to successfully complete; don't
+         *                    forget to set this to true on success! <br>
+         */
+        results.put("render_grid",str);
+        results.put("raster_ul_lon",raster_ul_lon);
+        results.put("raster_ul_lat",raster_ul_lat);
+        results.put("raster_lr_lon",raster_lr_lon);
+        results.put("raster_lr_lat",raster_lr_lat);
+        results.put("depth",index);
         return results;
     }
 
@@ -279,6 +331,7 @@ public class RasterAPIHandler extends APIRouteHandler<Map<String, Double>, Map<S
         BufferedImage tileImg = null;
         if (tileImg == null) {
             try {
+                System.out.println(imgPath);
                 File in = new File(imgPath);
                 tileImg = ImageIO.read(in);
             } catch (IOException | NullPointerException e) {

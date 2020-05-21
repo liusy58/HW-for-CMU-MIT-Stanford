@@ -9,6 +9,7 @@ import java.util.regex.Pattern;
  * This class acts as a helper for the RoutingAPIHandler.
  * @author Josh Hug, ______
  */
+import bearmaps.hw4.WeirdSolver;
 public class Router {
 
     /**
@@ -24,10 +25,10 @@ public class Router {
      */
     public static List<Long> shortestPath(AugmentedStreetMapGraph g, double stlon, double stlat,
                                           double destlon, double destlat) {
-        //long src = g.closest(stlon, stlat);
-        //long dest = g.closest(destlon, destlat);
-        //return new WeirdSolver<>(g, src, dest, 20).solution();
-        return null;
+        long src = g.closest(stlon, stlat);
+        long dest = g.closest(destlon, destlat);
+        return new WeirdSolver<>(g, src, dest, 20).solution();
+
     }
 
     /**

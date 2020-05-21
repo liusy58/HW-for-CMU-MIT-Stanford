@@ -3,22 +3,43 @@ package bearmaps.proj2c;
 import bearmaps.hw4.streetmap.Node;
 import bearmaps.hw4.streetmap.StreetMapGraph;
 import bearmaps.proj2ab.Point;
+import bearmaps.proj2ab.WeirdPointSet;
+import org.eclipse.jetty.util.Trie;
 
 import java.util.*;
+import java.util.function.Predicate;
 
 /**
  * An augmented graph that is more powerful that a standard StreetMapGraph.
  * Specifically, it supports the following additional operations:
  *
  *
- * @author Alan Yao, Josh Hug, ________
+ * @author Alan Yao, Josh Hug, Siyu Liu
  */
 public class AugmentedStreetMapGraph extends StreetMapGraph {
+    private WeirdPointSet points;
+    private HashMap<Point,Node> point2node;
 
+    private PrifixTree prefix_tree;
     public AugmentedStreetMapGraph(String dbPath) {
         super(dbPath);
         // You might find it helpful to uncomment the line below:
-        // List<Node> nodes = this.getNodes();
+        List<Node> nodes = this.getNodes();
+        point2node=new HashMap<Point,Node>();
+        ArrayList<Point>_points=new ArrayList<>();
+        prefix_tree=new PrifixTree();
+        for(int i=0;i<nodes.size();++i)
+        {
+            Node node=nodes.get(i);
+            if(node.name()!=null)
+                prefix_tree.insert(node.name());
+            if(super.neighbors(node.id()).isEmpty())
+                continue;
+            Point point=new Point(node.lon(),node.lat());
+            _points.add(point);
+            point2node.put(point,node);
+        }
+        points = new WeirdPointSet(_points);
     }
 
 
@@ -30,7 +51,8 @@ public class AugmentedStreetMapGraph extends StreetMapGraph {
      * @return The id of the node in the graph closest to the target.
      */
     public long closest(double lon, double lat) {
-        return 0;
+        Point res=points.nearest(lon,lat);
+        return point2node.get(res).id();
     }
 
 
@@ -43,7 +65,10 @@ public class AugmentedStreetMapGraph extends StreetMapGraph {
      * cleaned <code>prefix</code>.
      */
     public List<String> getLocationsByPrefix(String prefix) {
-        return new LinkedList<>();
+
+        ArrayList<String>res=new ArrayList<String>();
+        prefix_tree.hasPrefix(prefix,res);
+        return res;
     }
 
     /**
