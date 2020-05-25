@@ -19,7 +19,7 @@ import java.util.function.Predicate;
 public class AugmentedStreetMapGraph extends StreetMapGraph {
     private WeirdPointSet points;
     private HashMap<Point,Node> point2node;
-
+    private HashMap<String,ArrayList<Point>>name2pos;
     private PrifixTree prefix_tree;
     public AugmentedStreetMapGraph(String dbPath) {
         super(dbPath);
@@ -28,16 +28,40 @@ public class AugmentedStreetMapGraph extends StreetMapGraph {
         point2node=new HashMap<Point,Node>();
         ArrayList<Point>_points=new ArrayList<>();
         prefix_tree=new PrifixTree();
+        name2pos=new HashMap<>();
+        System.out.println("The nodes are below:");
         for(int i=0;i<nodes.size();++i)
         {
+
             Node node=nodes.get(i);
             if(node.name()!=null)
                 prefix_tree.insert(node.name());
+
+//            if(super.neighbors(node.id()).isEmpty())
+//                continue;
+            Point point=new Point(node.lon(),node.lat());
+            point2node.put(point,node);
+            if(node.name()!=null)
+            {
+                String name=new String(node.name());
+
+                name=cleanString(name);
+                //System.out.println("The node name is "+node.name()+"the simple is :"+name);
+                if(name2pos.get(name)!=null)
+                {
+                    name2pos.get(name).add(point);
+                }
+                else
+                {
+                    ArrayList<Point>temp=new ArrayList<>();
+                    temp.add(point);
+                    name2pos.put(name,temp);
+                }
+            }
             if(super.neighbors(node.id()).isEmpty())
                 continue;
-            Point point=new Point(node.lon(),node.lat());
             _points.add(point);
-            point2node.put(point,node);
+
         }
         points = new WeirdPointSet(_points);
     }
@@ -85,7 +109,33 @@ public class AugmentedStreetMapGraph extends StreetMapGraph {
      * "id" -> Number, The id of the node. <br>
      */
     public List<Map<String, Object>> getLocations(String locationName) {
-        return new LinkedList<>();
+//        Iterator iter = name2pos.entrySet().iterator();
+//        while (iter.hasNext()) {
+//            Map.Entry entry = (Map.Entry) iter.next();
+//            System.out.println("Key:"+entry.getKey()+"  Value:"+entry.getValue());
+//        }
+        System.out.println("the locationName is "+locationName);
+        String name =cleanString(locationName);
+        List<Map<String, Object>>res=new LinkedList<>();
+        ArrayList<Point>points=name2pos.get(name);
+        if(points==null)
+        {
+            System.out.println("the locationName is not mapped to any node!");
+            return res;
+        }
+
+        for(Point point:points)
+        {
+            HashMap<String, Object>temp=new HashMap<>();
+            temp.put("lat",point2node.get(point).lat());
+            temp.put("lon",point2node.get(point).lon());
+            temp.put("name",locationName);
+            temp.put("id",point2node.get(point).id());
+            res.add(temp);
+
+            System.out.println("in getLocations: "+locationName);
+        }
+        return res;
     }
 
 
@@ -96,7 +146,7 @@ public class AugmentedStreetMapGraph extends StreetMapGraph {
      * @return Cleaned string.
      */
     private static String cleanString(String s) {
-        return s.replaceAll("[^a-zA-Z ]", "").toLowerCase();
+        return s.replaceAll("[^a-zA-Z]", "").toLowerCase();
     }
 
 }

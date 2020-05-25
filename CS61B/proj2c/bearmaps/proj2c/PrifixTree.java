@@ -50,7 +50,7 @@ public class PrifixTree
         lower2before.put(temp,str);
         TrieNode node=root;
         char[]letters=temp.toCharArray();
-        System.out.println(temp);
+        //System.out.println(temp);
         for(int i=0,len=temp.length(); i<len; i++)
         {
 
@@ -189,6 +189,7 @@ public class PrifixTree
         }
         TrieNode node = root;
         char[] letters = prefix.toCharArray();
+        //System.out.println("the prefix is :"+prefix);
         for (int i = 0, len = prefix.length(); i < len; i++)
         {
             int pos = letters[i] - 'a';
